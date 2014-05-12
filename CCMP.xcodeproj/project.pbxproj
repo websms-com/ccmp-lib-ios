@@ -1,0 +1,917 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		F6227C541836383F001F32E8 /* Doku */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F6227C551836383F001F32E8 /* Build configuration list for PBXAggregateTarget "Doku" */;
+			buildPhases = (
+				F6227C581836384F001F32E8 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Doku;
+			productName = Doku;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		A2DB309C6A4B40348D024CF7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CE9E8A392D419192642042 /* libPods.a */; };
+		F604549F182A23930027C174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F604549E182A23930027C174 /* Foundation.framework */; };
+		F60454A4182A23930027C174 /* CCMP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F60454A3182A23930027C174 /* CCMP.h */; };
+		F60454A6182A23930027C174 /* CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F60454A5182A23930027C174 /* CCMP.m */; };
+		F60454AD182A23930027C174 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60454AC182A23930027C174 /* XCTest.framework */; };
+		F60454AE182A23930027C174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F604549E182A23930027C174 /* Foundation.framework */; };
+		F60454B9182A23930027C174 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F60454B7182A23930027C174 /* InfoPlist.strings */; };
+		F610020C1864268700A7D332 /* CCMPAPIAttachmentGet.m in Sources */ = {isa = PBXBuildFile; fileRef = F610020B1864268700A7D332 /* CCMPAPIAttachmentGet.m */; };
+		F61002101864277000A7D332 /* CCMPAPIAttachmentUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = F610020F1864277000A7D332 /* CCMPAPIAttachmentUpload.m */; };
+		F610021C1864454300A7D332 /* NSData+CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F610021B1864454300A7D332 /* NSData+CCMP.m */; };
+		F612E74718D0A155004FE0C5 /* CCMPAttachmentMO.m in Sources */ = {isa = PBXBuildFile; fileRef = F612E74618D0A155004FE0C5 /* CCMPAttachmentMO.m */; };
+		F612E74C18D0A220004FE0C5 /* CCMPAccountMO.m in Sources */ = {isa = PBXBuildFile; fileRef = F612E74B18D0A220004FE0C5 /* CCMPAccountMO.m */; };
+		F64B335A191A5948002E34A3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CE9E8A392D419192642042 /* libPods.a */; };
+		F64B335D191A5A3C002E34A3 /* CCMPAPIAbstractOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A46C1182A814900229A48 /* CCMPAPIAbstractOperation.m */; };
+		F64B335E191A5B20002E34A3 /* CCMPAPIAbstractResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E788182BBB7D00A371B6 /* CCMPAPIAbstractResponse.m */; };
+		F64B335F191A5B20002E34A3 /* CCMPAPIDeviceGet.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A46C4182A8CFE00229A48 /* CCMPAPIDeviceGet.m */; };
+		F64B3360191A5B20002E34A3 /* CCMPAPIDeviceRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E77E182BA82300A371B6 /* CCMPAPIDeviceRegister.m */; };
+		F64B3361191A5B20002E34A3 /* CCMPAPIDeviceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E783182BB86D00A371B6 /* CCMPAPIDeviceUpdate.m */; };
+		F64B3362191A5B20002E34A3 /* CCMPAPIDeviceVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E792182CF05800A371B6 /* CCMPAPIDeviceVerification.m */; };
+		F64B3363191A5B20002E34A3 /* CCMPAPIInboxFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80C018437A4500C7210B /* CCMPAPIInboxFetch.m */; };
+		F64B3364191A5B20002E34A3 /* CCMPAPIOutbox.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80C5184391B800C7210B /* CCMPAPIOutbox.m */; };
+		F64B3365191A5B20002E34A3 /* CCMPAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80CA18439D1700C7210B /* CCMPAPIConfiguration.m */; };
+		F64B3366191A5B20002E34A3 /* CCMPAPIAttachmentGet.m in Sources */ = {isa = PBXBuildFile; fileRef = F610020B1864268700A7D332 /* CCMPAPIAttachmentGet.m */; };
+		F64B3367191A5B20002E34A3 /* CCMPAPIAttachmentUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = F610020F1864277000A7D332 /* CCMPAPIAttachmentUpload.m */; };
+		F64B3368191A5B20002E34A3 /* CCMPAPIAccountGet.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E118C018D8730A004204BF /* CCMPAPIAccountGet.m */; };
+		F64B3369191A5B20002E34A3 /* CCMPAPIConfigurationKey.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E1191218DC358E004204BF /* CCMPAPIConfigurationKey.m */; };
+		F64B336A191A5B24002E34A3 /* CCMPDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FFC7B41834F35B00A78E94 /* CCMPDatabase.m */; };
+		F64B336B191A5B28002E34A3 /* CCMPDatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */; };
+		F64B336C191A5B2D002E34A3 /* CCMPMessageMO.m in Sources */ = {isa = PBXBuildFile; fileRef = F68730481844D172000C6F06 /* CCMPMessageMO.m */; };
+		F64B336D191A5B2D002E34A3 /* CCMPAttachmentMO.m in Sources */ = {isa = PBXBuildFile; fileRef = F612E74618D0A155004FE0C5 /* CCMPAttachmentMO.m */; };
+		F64B336E191A5B2D002E34A3 /* CCMPAccountMO.m in Sources */ = {isa = PBXBuildFile; fileRef = F612E74B18D0A220004FE0C5 /* CCMPAccountMO.m */; };
+		F64B336F191A5B33002E34A3 /* CCMPVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF331C1831236800EF6D00 /* CCMPVariables.m */; };
+		F64B3370191A5B47002E34A3 /* CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F60454A5182A23930027C174 /* CCMP.m */; };
+		F64B3371191A5B4A002E34A3 /* CCMPApi.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A46BD182A745B00229A48 /* CCMPApi.m */; };
+		F64B3372191A5BA4002E34A3 /* CCMPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F6607D87184CD00900393CD3 /* CCMPUtils.m */; };
+		F64B3374191A5BA4002E34A3 /* NSData+CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F610021B1864454300A7D332 /* NSData+CCMP.m */; };
+		F64B3375191A5BA4002E34A3 /* NSException+CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F68DADE71846089400414A30 /* NSException+CCMP.m */; };
+		F64B3376191A5BA4002E34A3 /* NSUserDefaults+CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF331618311A1400EF6D00 /* NSUserDefaults+CCMP.m */; };
+		F64B3377191A5BF4002E34A3 /* CCMPApiAbstractOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E78A182BED9500A371B6 /* CCMPApiAbstractOperationTests.m */; };
+		F64B3378191A5C87002E34A3 /* CCMPApiAbstractResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E78C182BEE9B00A371B6 /* CCMPApiAbstractResponseTests.m */; };
+		F64B337C191A5F5C002E34A3 /* CCMPAPIConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80CC18439DE700C7210B /* CCMPAPIConfigurationTests.m */; };
+		F64B337F191A6150002E34A3 /* CCMPApiDeviceGetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E779182B97BD00A371B6 /* CCMPApiDeviceGetTests.m */; };
+		F64B3380191A6380002E34A3 /* CCMPApiDeviceRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E77B182BA76100A371B6 /* CCMPApiDeviceRegisterTests.m */; };
+		F64B3381191A6516002E34A3 /* CCMPAPIDeviceUpdateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E785182BB89100A371B6 /* CCMPAPIDeviceUpdateTests.m */; };
+		F64B3382191A65BA002E34A3 /* CCMPAPIDeviceVerificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E794182CF9A600A371B6 /* CCMPAPIDeviceVerificationTests.m */; };
+		F64B3383191A661E002E34A3 /* CCMPAPIInboxFetchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80C2184389A500C7210B /* CCMPAPIInboxFetchTests.m */; };
+		F64B3384191A6728002E34A3 /* CCMPAPIOutboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80C71843934C00C7210B /* CCMPAPIOutboxTests.m */; };
+		F64B3387191A6A03002E34A3 /* XCTAsyncTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF33261832114600EF6D00 /* XCTAsyncTestCase.m */; };
+		F64B3389191A6A52002E34A3 /* CCMPUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F64B3388191A6A52002E34A3 /* CCMPUtilsTests.m */; };
+		F65A46BE182A745B00229A48 /* CCMPApi.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A46BD182A745B00229A48 /* CCMPApi.m */; };
+		F65A46C2182A814900229A48 /* CCMPAPIAbstractOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A46C1182A814900229A48 /* CCMPAPIAbstractOperation.m */; };
+		F65A46C5182A8CFE00229A48 /* CCMPAPIDeviceGet.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A46C4182A8CFE00229A48 /* CCMPAPIDeviceGet.m */; };
+		F6607D5A184C9F1900393CD3 /* CCMPVariables.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6EF331B1831236800EF6D00 /* CCMPVariables.h */; };
+		F6607D88184CD00900393CD3 /* CCMPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F6607D87184CD00900393CD3 /* CCMPUtils.m */; };
+		F6607D89184CD3F700393CD3 /* CCMPDatabase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6FFC7B31834F35B00A78E94 /* CCMPDatabase.h */; };
+		F6607D8A184CD45C00393CD3 /* CCMPMessageMO.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F68730471844D172000C6F06 /* CCMPMessageMO.h */; };
+		F68730491844D172000C6F06 /* CCMPMessageMO.m in Sources */ = {isa = PBXBuildFile; fileRef = F68730481844D172000C6F06 /* CCMPMessageMO.m */; };
+		F68DADE81846089400414A30 /* NSException+CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F68DADE71846089400414A30 /* NSException+CCMP.m */; };
+		F69B80C118437A4500C7210B /* CCMPAPIInboxFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80C018437A4500C7210B /* CCMPAPIInboxFetch.m */; };
+		F69B80C6184391B800C7210B /* CCMPAPIOutbox.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80C5184391B800C7210B /* CCMPAPIOutbox.m */; };
+		F69B80CB18439D1700C7210B /* CCMPAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80CA18439D1700C7210B /* CCMPAPIConfiguration.m */; };
+		F69B80D51844845900C7210B /* CCMPDatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */; };
+		F6B5E24E184DD59700AE86B4 /* CCMPDatabaseModel.xcdatamodeld in CopyFiles */ = {isa = PBXBuildFile; fileRef = F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */; };
+		F6BA94A91920B04C00679411 /* CCMPApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F60454BA182A23930027C174 /* CCMPApiTests.m */; };
+		F6C1E77F182BA82300A371B6 /* CCMPAPIDeviceRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E77E182BA82300A371B6 /* CCMPAPIDeviceRegister.m */; };
+		F6C1E784182BB86D00A371B6 /* CCMPAPIDeviceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E783182BB86D00A371B6 /* CCMPAPIDeviceUpdate.m */; };
+		F6C1E789182BBB7D00A371B6 /* CCMPAPIAbstractResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E788182BBB7D00A371B6 /* CCMPAPIAbstractResponse.m */; };
+		F6C1E793182CF05800A371B6 /* CCMPAPIDeviceVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E792182CF05800A371B6 /* CCMPAPIDeviceVerification.m */; };
+		F6C9DA14191A531D001A1778 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69B80D618448C8500C7210B /* CoreData.framework */; };
+		F6E118C118D8730A004204BF /* CCMPAPIAccountGet.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E118C018D8730A004204BF /* CCMPAPIAccountGet.m */; };
+		F6E1191318DC358E004204BF /* CCMPAPIConfigurationKey.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E1191218DC358E004204BF /* CCMPAPIConfigurationKey.m */; };
+		F6EF331718311A1400EF6D00 /* NSUserDefaults+CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF331618311A1400EF6D00 /* NSUserDefaults+CCMP.m */; };
+		F6EF331D1831236800EF6D00 /* CCMPVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF331C1831236800EF6D00 /* CCMPVariables.m */; };
+		F6FFC7B51834F35B00A78E94 /* CCMPDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FFC7B41834F35B00A78E94 /* CCMPDatabase.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F60454B1182A23930027C174 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6045493182A23930027C174 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F604549A182A23930027C174;
+			remoteInfo = CCMP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6045499182A23930027C174 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include;
+			dstSubfolderSpec = 16;
+			files = (
+				F6B5E24E184DD59700AE86B4 /* CCMPDatabaseModel.xcdatamodeld in CopyFiles */,
+				F6607D8A184CD45C00393CD3 /* CCMPMessageMO.h in CopyFiles */,
+				F6607D89184CD3F700393CD3 /* CCMPDatabase.h in CopyFiles */,
+				F60454A4182A23930027C174 /* CCMP.h in CopyFiles */,
+				F6607D5A184C9F1900393CD3 /* CCMPVariables.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		91CE9E8A392D419192642042 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		977177E22601433486B8020A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F604549B182A23930027C174 /* libCCMP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCCMP.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F604549E182A23930027C174 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F60454A2182A23930027C174 /* CCMP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCMP-Prefix.pch"; sourceTree = "<group>"; };
+		F60454A3182A23930027C174 /* CCMP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMP.h; sourceTree = "<group>"; };
+		F60454A5182A23930027C174 /* CCMP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMP.m; sourceTree = "<group>"; };
+		F60454AB182A23930027C174 /* CCMP-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CCMP-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F60454AC182A23930027C174 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F60454B6182A23930027C174 /* CCMPTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CCMPTests-Info.plist"; sourceTree = "<group>"; };
+		F60454B8182A23930027C174 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F60454BA182A23930027C174 /* CCMPApiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMPApiTests.m; sourceTree = "<group>"; };
+		F610020A1864268700A7D332 /* CCMPAPIAttachmentGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIAttachmentGet.h; sourceTree = "<group>"; };
+		F610020B1864268700A7D332 /* CCMPAPIAttachmentGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIAttachmentGet.m; sourceTree = "<group>"; };
+		F610020E1864277000A7D332 /* CCMPAPIAttachmentUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIAttachmentUpload.h; sourceTree = "<group>"; };
+		F610020F1864277000A7D332 /* CCMPAPIAttachmentUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIAttachmentUpload.m; sourceTree = "<group>"; };
+		F610021A1864454300A7D332 /* NSData+CCMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CCMP.h"; sourceTree = "<group>"; };
+		F610021B1864454300A7D332 /* NSData+CCMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CCMP.m"; sourceTree = "<group>"; };
+		F612E74418D09CC3004FE0C5 /* CCMPDatabaseModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 4.xcdatamodel"; sourceTree = "<group>"; };
+		F612E74518D0A155004FE0C5 /* CCMPAttachmentMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAttachmentMO.h; sourceTree = "<group>"; };
+		F612E74618D0A155004FE0C5 /* CCMPAttachmentMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAttachmentMO.m; sourceTree = "<group>"; };
+		F612E74A18D0A220004FE0C5 /* CCMPAccountMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAccountMO.h; sourceTree = "<group>"; };
+		F612E74B18D0A220004FE0C5 /* CCMPAccountMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAccountMO.m; sourceTree = "<group>"; };
+		F64B337D191A5FDC002E34A3 /* CCMPTestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPTestConfig.h; sourceTree = "<group>"; };
+		F64B3388191A6A52002E34A3 /* CCMPUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPUtilsTests.m; sourceTree = "<group>"; };
+		F65A46BC182A745B00229A48 /* CCMPApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPApi.h; sourceTree = "<group>"; };
+		F65A46BD182A745B00229A48 /* CCMPApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPApi.m; sourceTree = "<group>"; };
+		F65A46C0182A814900229A48 /* CCMPAPIAbstractOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIAbstractOperation.h; sourceTree = "<group>"; };
+		F65A46C1182A814900229A48 /* CCMPAPIAbstractOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIAbstractOperation.m; sourceTree = "<group>"; };
+		F65A46C3182A8CFE00229A48 /* CCMPAPIDeviceGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIDeviceGet.h; sourceTree = "<group>"; };
+		F65A46C4182A8CFE00229A48 /* CCMPAPIDeviceGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIDeviceGet.m; sourceTree = "<group>"; };
+		F6607D65184CB29A00393CD3 /* libCCMP.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = libCCMP.xcconfig; sourceTree = "<group>"; };
+		F6607D86184CD00900393CD3 /* CCMPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPUtils.h; sourceTree = "<group>"; };
+		F6607D87184CD00900393CD3 /* CCMPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPUtils.m; sourceTree = "<group>"; };
+		F68730471844D172000C6F06 /* CCMPMessageMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPMessageMO.h; sourceTree = "<group>"; };
+		F68730481844D172000C6F06 /* CCMPMessageMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPMessageMO.m; sourceTree = "<group>"; };
+		F68DADE61846089400414A30 /* NSException+CCMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+CCMP.h"; sourceTree = "<group>"; };
+		F68DADE71846089400414A30 /* NSException+CCMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+CCMP.m"; sourceTree = "<group>"; };
+		F69B80BF18437A4500C7210B /* CCMPAPIInboxFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIInboxFetch.h; sourceTree = "<group>"; };
+		F69B80C018437A4500C7210B /* CCMPAPIInboxFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIInboxFetch.m; sourceTree = "<group>"; };
+		F69B80C2184389A500C7210B /* CCMPAPIInboxFetchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIInboxFetchTests.m; sourceTree = "<group>"; };
+		F69B80C4184391B800C7210B /* CCMPAPIOutbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIOutbox.h; sourceTree = "<group>"; };
+		F69B80C5184391B800C7210B /* CCMPAPIOutbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIOutbox.m; sourceTree = "<group>"; };
+		F69B80C71843934C00C7210B /* CCMPAPIOutboxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIOutboxTests.m; sourceTree = "<group>"; };
+		F69B80C918439D1700C7210B /* CCMPAPIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIConfiguration.h; sourceTree = "<group>"; };
+		F69B80CA18439D1700C7210B /* CCMPAPIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIConfiguration.m; sourceTree = "<group>"; };
+		F69B80CC18439DE700C7210B /* CCMPAPIConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIConfigurationTests.m; sourceTree = "<group>"; };
+		F69B80D41844845800C7210B /* CCMPDatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CCMPDatabaseModel.xcdatamodel; sourceTree = "<group>"; };
+		F69B80D618448C8500C7210B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F69B81031844CAB100C7210B /* CCMPDatabaseModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		F6B2201C185EDE8600BD1C01 /* CCMPDatabaseModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 3.xcdatamodel"; sourceTree = "<group>"; };
+		F6C1E779182B97BD00A371B6 /* CCMPApiDeviceGetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPApiDeviceGetTests.m; sourceTree = "<group>"; };
+		F6C1E77B182BA76100A371B6 /* CCMPApiDeviceRegisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPApiDeviceRegisterTests.m; sourceTree = "<group>"; };
+		F6C1E77D182BA82300A371B6 /* CCMPAPIDeviceRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIDeviceRegister.h; sourceTree = "<group>"; };
+		F6C1E77E182BA82300A371B6 /* CCMPAPIDeviceRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIDeviceRegister.m; sourceTree = "<group>"; };
+		F6C1E782182BB86D00A371B6 /* CCMPAPIDeviceUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIDeviceUpdate.h; sourceTree = "<group>"; };
+		F6C1E783182BB86D00A371B6 /* CCMPAPIDeviceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIDeviceUpdate.m; sourceTree = "<group>"; };
+		F6C1E785182BB89100A371B6 /* CCMPAPIDeviceUpdateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIDeviceUpdateTests.m; sourceTree = "<group>"; };
+		F6C1E787182BBB7D00A371B6 /* CCMPAPIAbstractResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIAbstractResponse.h; sourceTree = "<group>"; };
+		F6C1E788182BBB7D00A371B6 /* CCMPAPIAbstractResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIAbstractResponse.m; sourceTree = "<group>"; };
+		F6C1E78A182BED9500A371B6 /* CCMPApiAbstractOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPApiAbstractOperationTests.m; sourceTree = "<group>"; };
+		F6C1E78C182BEE9B00A371B6 /* CCMPApiAbstractResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPApiAbstractResponseTests.m; sourceTree = "<group>"; };
+		F6C1E791182CF05800A371B6 /* CCMPAPIDeviceVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIDeviceVerification.h; sourceTree = "<group>"; };
+		F6C1E792182CF05800A371B6 /* CCMPAPIDeviceVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIDeviceVerification.m; sourceTree = "<group>"; };
+		F6C1E794182CF9A600A371B6 /* CCMPAPIDeviceVerificationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIDeviceVerificationTests.m; sourceTree = "<group>"; };
+		F6E118AF18D31217004204BF /* CCMPDatabaseModel 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 5.xcdatamodel"; sourceTree = "<group>"; };
+		F6E118BF18D8730A004204BF /* CCMPAPIAccountGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIAccountGet.h; sourceTree = "<group>"; };
+		F6E118C018D8730A004204BF /* CCMPAPIAccountGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIAccountGet.m; sourceTree = "<group>"; };
+		F6E1191118DC358E004204BF /* CCMPAPIConfigurationKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIConfigurationKey.h; sourceTree = "<group>"; };
+		F6E1191218DC358E004204BF /* CCMPAPIConfigurationKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIConfigurationKey.m; sourceTree = "<group>"; };
+		F6EF331518311A1400EF6D00 /* NSUserDefaults+CCMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+CCMP.h"; sourceTree = "<group>"; };
+		F6EF331618311A1400EF6D00 /* NSUserDefaults+CCMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+CCMP.m"; sourceTree = "<group>"; };
+		F6EF331B1831236800EF6D00 /* CCMPVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPVariables.h; sourceTree = "<group>"; };
+		F6EF331C1831236800EF6D00 /* CCMPVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPVariables.m; sourceTree = "<group>"; };
+		F6EF331E183125F400EF6D00 /* CCMPTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPTests.m; sourceTree = "<group>"; };
+		F6EF33251832114600EF6D00 /* XCTAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTAsyncTestCase.h; sourceTree = "<group>"; };
+		F6EF33261832114600EF6D00 /* XCTAsyncTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTAsyncTestCase.m; sourceTree = "<group>"; };
+		F6FFC7B31834F35B00A78E94 /* CCMPDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPDatabase.h; sourceTree = "<group>"; };
+		F6FFC7B41834F35B00A78E94 /* CCMPDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPDatabase.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6045498182A23930027C174 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F604549F182A23930027C174 /* Foundation.framework in Frameworks */,
+				F6C9DA14191A531D001A1778 /* CoreData.framework in Frameworks */,
+				A2DB309C6A4B40348D024CF7 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F60454A8182A23930027C174 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F60454AE182A23930027C174 /* Foundation.framework in Frameworks */,
+				F60454AD182A23930027C174 /* XCTest.framework in Frameworks */,
+				F64B335A191A5948002E34A3 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F6045492182A23930027C174 = {
+			isa = PBXGroup;
+			children = (
+				F60454A0182A23930027C174 /* CCMP */,
+				F60454B4182A23930027C174 /* CCMP-Tests */,
+				F604549D182A23930027C174 /* Frameworks */,
+				F604549C182A23930027C174 /* Products */,
+				977177E22601433486B8020A /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		F604549C182A23930027C174 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F604549B182A23930027C174 /* libCCMP.a */,
+				F60454AB182A23930027C174 /* CCMP-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F604549D182A23930027C174 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F69B80D618448C8500C7210B /* CoreData.framework */,
+				F604549E182A23930027C174 /* Foundation.framework */,
+				F60454AC182A23930027C174 /* XCTest.framework */,
+				91CE9E8A392D419192642042 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F60454A0182A23930027C174 /* CCMP */ = {
+			isa = PBXGroup;
+			children = (
+				F60454A3182A23930027C174 /* CCMP.h */,
+				F60454A5182A23930027C174 /* CCMP.m */,
+				F65A46BB182A743B00229A48 /* API */,
+				F65A46BA182A743300229A48 /* Database */,
+				F60454A1182A23930027C174 /* Supporting Files */,
+				F6EF3314183119F300EF6D00 /* Utils */,
+			);
+			path = CCMP;
+			sourceTree = "<group>";
+		};
+		F60454A1182A23930027C174 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF331B1831236800EF6D00 /* CCMPVariables.h */,
+				F6EF331C1831236800EF6D00 /* CCMPVariables.m */,
+				F60454A2182A23930027C174 /* CCMP-Prefix.pch */,
+				F6607D65184CB29A00393CD3 /* libCCMP.xcconfig */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F60454B4182A23930027C174 /* CCMP-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F6C1E780182BA8BE00A371B6 /* APITests [Integration Tests] */,
+				F69B80D8184497F200C7210B /* LibTests [Unit Tests] */,
+				F60454B5182A23930027C174 /* Supporting Files */,
+				F6EF33201832111900EF6D00 /* Libraries */,
+			);
+			name = "CCMP-Tests";
+			path = CCMPTests;
+			sourceTree = "<group>";
+		};
+		F60454B5182A23930027C174 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F60454B6182A23930027C174 /* CCMPTests-Info.plist */,
+				F60454B7182A23930027C174 /* InfoPlist.strings */,
+				F64B337D191A5FDC002E34A3 /* CCMPTestConfig.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F65A46BA182A743300229A48 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F6FFC7B31834F35B00A78E94 /* CCMPDatabase.h */,
+				F6FFC7B41834F35B00A78E94 /* CCMPDatabase.m */,
+				F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */,
+				F69B80CF1844810A00C7210B /* Models */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		F65A46BB182A743B00229A48 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F65A46BC182A745B00229A48 /* CCMPApi.h */,
+				F65A46BD182A745B00229A48 /* CCMPApi.m */,
+				F65A46BF182A813100229A48 /* Operations */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		F65A46BF182A813100229A48 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				F65A46C0182A814900229A48 /* CCMPAPIAbstractOperation.h */,
+				F65A46C1182A814900229A48 /* CCMPAPIAbstractOperation.m */,
+				F6C1E787182BBB7D00A371B6 /* CCMPAPIAbstractResponse.h */,
+				F6C1E788182BBB7D00A371B6 /* CCMPAPIAbstractResponse.m */,
+				F65A46C3182A8CFE00229A48 /* CCMPAPIDeviceGet.h */,
+				F65A46C4182A8CFE00229A48 /* CCMPAPIDeviceGet.m */,
+				F6C1E77D182BA82300A371B6 /* CCMPAPIDeviceRegister.h */,
+				F6C1E77E182BA82300A371B6 /* CCMPAPIDeviceRegister.m */,
+				F6C1E782182BB86D00A371B6 /* CCMPAPIDeviceUpdate.h */,
+				F6C1E783182BB86D00A371B6 /* CCMPAPIDeviceUpdate.m */,
+				F6C1E791182CF05800A371B6 /* CCMPAPIDeviceVerification.h */,
+				F6C1E792182CF05800A371B6 /* CCMPAPIDeviceVerification.m */,
+				F69B80BF18437A4500C7210B /* CCMPAPIInboxFetch.h */,
+				F69B80C018437A4500C7210B /* CCMPAPIInboxFetch.m */,
+				F69B80C4184391B800C7210B /* CCMPAPIOutbox.h */,
+				F69B80C5184391B800C7210B /* CCMPAPIOutbox.m */,
+				F69B80C918439D1700C7210B /* CCMPAPIConfiguration.h */,
+				F69B80CA18439D1700C7210B /* CCMPAPIConfiguration.m */,
+				F610020A1864268700A7D332 /* CCMPAPIAttachmentGet.h */,
+				F610020B1864268700A7D332 /* CCMPAPIAttachmentGet.m */,
+				F610020E1864277000A7D332 /* CCMPAPIAttachmentUpload.h */,
+				F610020F1864277000A7D332 /* CCMPAPIAttachmentUpload.m */,
+				F6E118BF18D8730A004204BF /* CCMPAPIAccountGet.h */,
+				F6E118C018D8730A004204BF /* CCMPAPIAccountGet.m */,
+				F6E1191118DC358E004204BF /* CCMPAPIConfigurationKey.h */,
+				F6E1191218DC358E004204BF /* CCMPAPIConfigurationKey.m */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		F69B80CF1844810A00C7210B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F68730471844D172000C6F06 /* CCMPMessageMO.h */,
+				F68730481844D172000C6F06 /* CCMPMessageMO.m */,
+				F612E74518D0A155004FE0C5 /* CCMPAttachmentMO.h */,
+				F612E74618D0A155004FE0C5 /* CCMPAttachmentMO.m */,
+				F612E74A18D0A220004FE0C5 /* CCMPAccountMO.h */,
+				F612E74B18D0A220004FE0C5 /* CCMPAccountMO.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F69B80D8184497F200C7210B /* LibTests [Unit Tests] */ = {
+			isa = PBXGroup;
+			children = (
+				F6C1E78A182BED9500A371B6 /* CCMPApiAbstractOperationTests.m */,
+				F6C1E78C182BEE9B00A371B6 /* CCMPApiAbstractResponseTests.m */,
+				F69B80CC18439DE700C7210B /* CCMPAPIConfigurationTests.m */,
+				F6C1E779182B97BD00A371B6 /* CCMPApiDeviceGetTests.m */,
+				F6C1E77B182BA76100A371B6 /* CCMPApiDeviceRegisterTests.m */,
+				F6C1E785182BB89100A371B6 /* CCMPAPIDeviceUpdateTests.m */,
+				F6C1E794182CF9A600A371B6 /* CCMPAPIDeviceVerificationTests.m */,
+				F69B80C2184389A500C7210B /* CCMPAPIInboxFetchTests.m */,
+				F69B80C71843934C00C7210B /* CCMPAPIOutboxTests.m */,
+				F64B3388191A6A52002E34A3 /* CCMPUtilsTests.m */,
+			);
+			name = "LibTests [Unit Tests]";
+			sourceTree = "<group>";
+		};
+		F6C1E780182BA8BE00A371B6 /* APITests [Integration Tests] */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF331E183125F400EF6D00 /* CCMPTests.m */,
+				F60454BA182A23930027C174 /* CCMPApiTests.m */,
+			);
+			name = "APITests [Integration Tests]";
+			sourceTree = "<group>";
+		};
+		F6EF3314183119F300EF6D00 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F6607D86184CD00900393CD3 /* CCMPUtils.h */,
+				F6607D87184CD00900393CD3 /* CCMPUtils.m */,
+				F610021A1864454300A7D332 /* NSData+CCMP.h */,
+				F610021B1864454300A7D332 /* NSData+CCMP.m */,
+				F68DADE61846089400414A30 /* NSException+CCMP.h */,
+				F68DADE71846089400414A30 /* NSException+CCMP.m */,
+				F6EF331518311A1400EF6D00 /* NSUserDefaults+CCMP.h */,
+				F6EF331618311A1400EF6D00 /* NSUserDefaults+CCMP.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		F6EF33201832111900EF6D00 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF33211832114600EF6D00 /* xctest-additions-master */,
+			);
+			name = Libraries;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F6EF33211832114600EF6D00 /* xctest-additions-master */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF33251832114600EF6D00 /* XCTAsyncTestCase.h */,
+				F6EF33261832114600EF6D00 /* XCTAsyncTestCase.m */,
+			);
+			name = "xctest-additions-master";
+			path = "CCMPTests/Libraries/xctest-additions-master";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F604549A182A23930027C174 /* CCMP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F60454BE182A23930027C174 /* Build configuration list for PBXNativeTarget "CCMP" */;
+			buildPhases = (
+				1A7CAB85A0EE479F99B49D81 /* Check Pods Manifest.lock */,
+				F6045497182A23930027C174 /* Sources */,
+				F6045498182A23930027C174 /* Frameworks */,
+				F6045499182A23930027C174 /* CopyFiles */,
+				99D4B4312EC745B09032882F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CCMP;
+			productName = CCMP;
+			productReference = F604549B182A23930027C174 /* libCCMP.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F60454AA182A23930027C174 /* CCMP-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F60454C1182A23930027C174 /* Build configuration list for PBXNativeTarget "CCMP-Tests" */;
+			buildPhases = (
+				E42B68538280482497D5ECB4 /* Check Pods Manifest.lock */,
+				F60454A7182A23930027C174 /* Sources */,
+				F60454A8182A23930027C174 /* Frameworks */,
+				F60454A9182A23930027C174 /* Resources */,
+				FA3EF1EF68774ABA9FEC74BE /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F60454B2182A23930027C174 /* PBXTargetDependency */,
+			);
+			name = "CCMP-Tests";
+			productName = CCMPTests;
+			productReference = F60454AB182A23930027C174 /* CCMP-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6045493182A23930027C174 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Up To Eleven";
+			};
+			buildConfigurationList = F6045496182A23930027C174 /* Build configuration list for PBXProject "CCMP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F6045492182A23930027C174;
+			productRefGroup = F604549C182A23930027C174 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F604549A182A23930027C174 /* CCMP */,
+				F60454AA182A23930027C174 /* CCMP-Tests */,
+				F6227C541836383F001F32E8 /* Doku */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F60454A9182A23930027C174 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F60454B9182A23930027C174 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A7CAB85A0EE479F99B49D81 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		99D4B4312EC745B09032882F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E42B68538280482497D5ECB4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F6227C581836384F001F32E8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Start constants\ncompany=\"Up To Eleven\";\ncompanyID=\"net.ut11\";\ncompanyURL=\"http://www.ut11.net\";\ntarget=\"iphoneos\";\noutputPath=\"~/Sites/xcode_workspace/help/${PROJECT_NAME}\";\n# End constants\n\n/usr/local/bin/appledoc \\\n--exit-threshold 2 \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/docs/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/docs/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/docs\" \\\n--docset-platform-family \"${target}\" \\\n--include \"${PROJECT_DIR}/Pods/Headers/LocalLibrary-lib\" \\\n--index-desc \"${PROJECT_DIR}/Documentation/appledoc/Top_level.markdown\" \\\n--keep-intermediate-files \\\n--logformat xcode \\\n--merge-categories \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--no-warn-undocumented-object \\\n--no-warn-undocumented-member \\\n--no-warn-empty-description \\\n--output \"${outputPath}\" \\\n--install-docset \\\n--print-information-block-titles \\\n--use-code-order \\\n--verbose 4 \\\n--ignore \"*.m\" \\\n--ignore \"*.pch\" \\\n--ignore \"*.config\" \\\n--ignore \"*.xcconfig\" \\\n--ignore \"*.docset\" \\\n--ignore \"*.xcodeproj\" \\\n--ignore \"*.xcworkspace\" \\\n--ignore \"*.lock\" \\\n--ignore \"*.plist\" \\\n--ignore \"*.strings\" \\\n--ignore \"*.txt\" \\\n--ignore \"*.app\" \\\n--ignore \"*.podspec\" \\\n--ignore \"*.jnlp\" \\\n--ignore \"*.jar\" \\\n--ignore \"*.png\" \\\n--ignore \"*.jpg\" \\\n--ignore \"*.html\" \\\n--ignore \"*.xml\" \\\n--ignore \"*.sh\" \\\n--ignore \"*.gitignore\" \\\n--ignore \"Pods\" \\\n\"${PROJECT_DIR}\"";
+		};
+		FA3EF1EF68774ABA9FEC74BE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6045497182A23930027C174 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6FFC7B51834F35B00A78E94 /* CCMPDatabase.m in Sources */,
+				F68DADE81846089400414A30 /* NSException+CCMP.m in Sources */,
+				F60454A6182A23930027C174 /* CCMP.m in Sources */,
+				F61002101864277000A7D332 /* CCMPAPIAttachmentUpload.m in Sources */,
+				F6E118C118D8730A004204BF /* CCMPAPIAccountGet.m in Sources */,
+				F6EF331718311A1400EF6D00 /* NSUserDefaults+CCMP.m in Sources */,
+				F65A46BE182A745B00229A48 /* CCMPApi.m in Sources */,
+				F6C1E784182BB86D00A371B6 /* CCMPAPIDeviceUpdate.m in Sources */,
+				F65A46C5182A8CFE00229A48 /* CCMPAPIDeviceGet.m in Sources */,
+				F6C1E77F182BA82300A371B6 /* CCMPAPIDeviceRegister.m in Sources */,
+				F6607D88184CD00900393CD3 /* CCMPUtils.m in Sources */,
+				F69B80C118437A4500C7210B /* CCMPAPIInboxFetch.m in Sources */,
+				F69B80C6184391B800C7210B /* CCMPAPIOutbox.m in Sources */,
+				F6C1E789182BBB7D00A371B6 /* CCMPAPIAbstractResponse.m in Sources */,
+				F6C1E793182CF05800A371B6 /* CCMPAPIDeviceVerification.m in Sources */,
+				F6EF331D1831236800EF6D00 /* CCMPVariables.m in Sources */,
+				F610020C1864268700A7D332 /* CCMPAPIAttachmentGet.m in Sources */,
+				F610021C1864454300A7D332 /* NSData+CCMP.m in Sources */,
+				F69B80CB18439D1700C7210B /* CCMPAPIConfiguration.m in Sources */,
+				F612E74C18D0A220004FE0C5 /* CCMPAccountMO.m in Sources */,
+				F65A46C2182A814900229A48 /* CCMPAPIAbstractOperation.m in Sources */,
+				F6E1191318DC358E004204BF /* CCMPAPIConfigurationKey.m in Sources */,
+				F68730491844D172000C6F06 /* CCMPMessageMO.m in Sources */,
+				F612E74718D0A155004FE0C5 /* CCMPAttachmentMO.m in Sources */,
+				F69B80D51844845900C7210B /* CCMPDatabaseModel.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F60454A7182A23930027C174 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F64B3370191A5B47002E34A3 /* CCMP.m in Sources */,
+				F64B3374191A5BA4002E34A3 /* NSData+CCMP.m in Sources */,
+				F64B3382191A65BA002E34A3 /* CCMPAPIDeviceVerificationTests.m in Sources */,
+				F64B336E191A5B2D002E34A3 /* CCMPAccountMO.m in Sources */,
+				F64B3375191A5BA4002E34A3 /* NSException+CCMP.m in Sources */,
+				F64B337C191A5F5C002E34A3 /* CCMPAPIConfigurationTests.m in Sources */,
+				F64B3364191A5B20002E34A3 /* CCMPAPIOutbox.m in Sources */,
+				F64B3363191A5B20002E34A3 /* CCMPAPIInboxFetch.m in Sources */,
+				F64B3384191A6728002E34A3 /* CCMPAPIOutboxTests.m in Sources */,
+				F64B3372191A5BA4002E34A3 /* CCMPUtils.m in Sources */,
+				F64B3376191A5BA4002E34A3 /* NSUserDefaults+CCMP.m in Sources */,
+				F6BA94A91920B04C00679411 /* CCMPApiTests.m in Sources */,
+				F64B3360191A5B20002E34A3 /* CCMPAPIDeviceRegister.m in Sources */,
+				F64B3367191A5B20002E34A3 /* CCMPAPIAttachmentUpload.m in Sources */,
+				F64B3366191A5B20002E34A3 /* CCMPAPIAttachmentGet.m in Sources */,
+				F64B335E191A5B20002E34A3 /* CCMPAPIAbstractResponse.m in Sources */,
+				F64B335D191A5A3C002E34A3 /* CCMPAPIAbstractOperation.m in Sources */,
+				F64B335F191A5B20002E34A3 /* CCMPAPIDeviceGet.m in Sources */,
+				F64B3368191A5B20002E34A3 /* CCMPAPIAccountGet.m in Sources */,
+				F64B3369191A5B20002E34A3 /* CCMPAPIConfigurationKey.m in Sources */,
+				F64B3377191A5BF4002E34A3 /* CCMPApiAbstractOperationTests.m in Sources */,
+				F64B3371191A5B4A002E34A3 /* CCMPApi.m in Sources */,
+				F64B337F191A6150002E34A3 /* CCMPApiDeviceGetTests.m in Sources */,
+				F64B3365191A5B20002E34A3 /* CCMPAPIConfiguration.m in Sources */,
+				F64B3378191A5C87002E34A3 /* CCMPApiAbstractResponseTests.m in Sources */,
+				F64B336A191A5B24002E34A3 /* CCMPDatabase.m in Sources */,
+				F64B3387191A6A03002E34A3 /* XCTAsyncTestCase.m in Sources */,
+				F64B3381191A6516002E34A3 /* CCMPAPIDeviceUpdateTests.m in Sources */,
+				F64B336B191A5B28002E34A3 /* CCMPDatabaseModel.xcdatamodeld in Sources */,
+				F64B3383191A661E002E34A3 /* CCMPAPIInboxFetchTests.m in Sources */,
+				F64B336D191A5B2D002E34A3 /* CCMPAttachmentMO.m in Sources */,
+				F64B336F191A5B33002E34A3 /* CCMPVariables.m in Sources */,
+				F64B3362191A5B20002E34A3 /* CCMPAPIDeviceVerification.m in Sources */,
+				F64B336C191A5B2D002E34A3 /* CCMPMessageMO.m in Sources */,
+				F64B3389191A6A52002E34A3 /* CCMPUtilsTests.m in Sources */,
+				F64B3361191A5B20002E34A3 /* CCMPAPIDeviceUpdate.m in Sources */,
+				F64B3380191A6380002E34A3 /* CCMPApiDeviceRegisterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F60454B2182A23930027C174 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F604549A182A23930027C174 /* CCMP */;
+			targetProxy = F60454B1182A23930027C174 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F60454B7182A23930027C174 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F60454B8182A23930027C174 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F60454BC182A23930027C174 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+			};
+			name = Debug;
+		};
+		F60454BD182A23930027C174 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+			};
+			name = Release;
+		};
+		F60454BF182A23930027C174 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 977177E22601433486B8020A /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DSTROOT = /tmp/CCMP.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCMP/CCMP-Prefix.pch";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F60454C0182A23930027C174 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 977177E22601433486B8020A /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DSTROOT = /tmp/CCMP.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCMP/CCMP-Prefix.pch";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F60454C2182A23930027C174 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 977177E22601433486B8020A /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCMP/CCMP-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"UNITTEST=1",
+				);
+				INFOPLIST_FILE = "CCMPTests/CCMPTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F60454C3182A23930027C174 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 977177E22601433486B8020A /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCMP/CCMP-Prefix.pch";
+				INFOPLIST_FILE = "CCMPTests/CCMPTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		F6227C561836383F001F32E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F6227C571836383F001F32E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6045496182A23930027C174 /* Build configuration list for PBXProject "CCMP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F60454BC182A23930027C174 /* Debug */,
+				F60454BD182A23930027C174 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F60454BE182A23930027C174 /* Build configuration list for PBXNativeTarget "CCMP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F60454BF182A23930027C174 /* Debug */,
+				F60454C0182A23930027C174 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F60454C1182A23930027C174 /* Build configuration list for PBXNativeTarget "CCMP-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F60454C2182A23930027C174 /* Debug */,
+				F60454C3182A23930027C174 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6227C551836383F001F32E8 /* Build configuration list for PBXAggregateTarget "Doku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6227C561836383F001F32E8 /* Debug */,
+				F6227C571836383F001F32E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F6E118AF18D31217004204BF /* CCMPDatabaseModel 5.xcdatamodel */,
+				F612E74418D09CC3004FE0C5 /* CCMPDatabaseModel 4.xcdatamodel */,
+				F6B2201C185EDE8600BD1C01 /* CCMPDatabaseModel 3.xcdatamodel */,
+				F69B81031844CAB100C7210B /* CCMPDatabaseModel 2.xcdatamodel */,
+				F69B80D41844845800C7210B /* CCMPDatabaseModel.xcdatamodel */,
+			);
+			currentVersion = F6E118AF18D31217004204BF /* CCMPDatabaseModel 5.xcdatamodel */;
+			path = CCMPDatabaseModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F6045493182A23930027C174 /* Project object */;
+}

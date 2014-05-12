@@ -1,0 +1,6 @@
+Pods/*
+*.lock
+*.xcuserstate
+*.xcuserdatad
+CCMP.xcworkspace/xcuserdata/*
+build/*
