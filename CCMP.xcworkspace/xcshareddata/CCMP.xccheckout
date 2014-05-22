@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5EEA5639-23B0-4005-B215-3CEBF3D8284C</string>
+	<string>805D90A4-51B4-49C3-8FCB-E77027A4DE74</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CCMP</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2F9FC9B6-2897-47C2-80D0-1A9982F8B940</key>
-		<string>http://git.sms.co.at/repo/app-library-ios.git</string>
+		<key>757A9728-9FE0-4C84-860B-A8F7AB25F4AB</key>
+		<string>https://github.com/websms-com/ccmp-lib-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CCMP.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2F9FC9B6-2897-47C2-80D0-1A9982F8B940</key>
+		<key>757A9728-9FE0-4C84-860B-A8F7AB25F4AB</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://git.sms.co.at/repo/app-library-ios.git</string>
+	<string>https://github.com/websms-com/ccmp-lib-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2F9FC9B6-2897-47C2-80D0-1A9982F8B940</string>
+	<string>757A9728-9FE0-4C84-860B-A8F7AB25F4AB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2F9FC9B6-2897-47C2-80D0-1A9982F8B940</string>
+			<string>757A9728-9FE0-4C84-860B-A8F7AB25F4AB</string>
 			<key>IDESourceControlWCCName</key>
-			<string>CCMP</string>
+			<string>ccmp-lib-ios</string>
 		</dict>
 	</array>
 </dict>
