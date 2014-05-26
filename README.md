@@ -40,7 +40,7 @@ Edit your Podfile and add the library:
 
 ``` bash
 platform :ios, '6.0'
-pod 'ccmp-lib-ios', :git => 'https://github.com/websms-com/ccmp-lib-ios.git'
+pod 'ccmp-lib-ios', '~> 1.1.1'
 ```
 
 Install into your Xcode project:

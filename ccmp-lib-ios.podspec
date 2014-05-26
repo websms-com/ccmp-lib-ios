@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name             = 'ccmp-lib-ios'
-  spec.version          = '1.1.0'
+  spec.version          = '1.1.1'
   spec.license          = { :type => 'Commercial', :text => 'See https://websms.com' }
   spec.homepage         = 'https://websms.com'
   spec.authors          = { 'websms.com' => 'sms2app@websms.com' }
