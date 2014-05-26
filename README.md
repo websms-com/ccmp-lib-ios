@@ -63,8 +63,8 @@ Christoph Lückler ([@oe8clr](https://github.com/oe8clr))
 
 ## Contact
 
-sms.at mobile internet services gmbh
-Münzgrabenstraße 92/4
+sms.at mobile internet services gmbh<br>
+Münzgrabenstraße 92/4<br>
 A-8010 Graz
 
 - https://github.com/websms-com
