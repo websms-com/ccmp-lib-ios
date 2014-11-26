@@ -14,7 +14,6 @@
 
 static CCMPDatabase *sharedInstance;
 
-#pragma mark
 #pragma mark - Initialization
 
 + (CCMPDatabase *)sharedDB {
@@ -41,7 +40,6 @@ static CCMPDatabase *sharedInstance;
 }
 
 
-#pragma mark
 #pragma mark - Notifications
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -49,7 +47,6 @@ static CCMPDatabase *sharedInstance;
 }
 
 
-#pragma mark
 #pragma mark - Database operations
 
 - (void)commit {
@@ -96,10 +93,7 @@ static CCMPDatabase *sharedInstance;
 }
 
 
-#pragma mark
-#pragma mark - Database queries
-
-#pragma mark Messages
+#pragma mark - Messages
 
 - (CCMPMessageMO *)getMessageWithId:(NSNumber *)messageId {
     NSArray *result = [CCMPMessageMO MR_findByAttribute: @"messageId"
@@ -191,6 +185,8 @@ static CCMPDatabase *sharedInstance;
     
     LOG(@"Update message - %@", message);
     
+    [self updateBadgeCounter];
+    
     return message;
 }
 
@@ -199,11 +195,9 @@ static CCMPDatabase *sharedInstance;
     
     message.read = [NSNumber numberWithBool:read];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incoming = 1 AND read = 0"];
-    NSUInteger unreadCount = [[CCMPMessageMO MR_findAllWithPredicate:predicate] count];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount];
+    LOG(@"Update message - %@", message);
     
-    LOG(@"Set badge counter %d", (int)unreadCount);
+    [self updateBadgeCounter];
     
     return message;
 }
@@ -213,6 +207,8 @@ static CCMPDatabase *sharedInstance;
     if (message) {
         [self deleteObject:message];
     }
+    
+    [self updateBadgeCounter];
 }
 
 - (void)deleteMessageWithMessageIds:(NSArray *)messageIds {
@@ -222,6 +218,8 @@ static CCMPDatabase *sharedInstance;
             [self deleteObject:message];
         }
     }
+    
+    [self updateBadgeCounter];
 }
 
 - (void)deleteMessage:(CCMPMessageMO *)message andReferences:(BOOL)references {
@@ -256,7 +254,7 @@ static CCMPDatabase *sharedInstance;
 }
 
 
-#pragma mark Account
+#pragma mark - Account
 
 - (CCMPAccountMO *)getAccountWithId:(NSNumber *)accountId {
     NSArray *result = [CCMPAccountMO MR_findByAttribute: @"accountId"
@@ -286,7 +284,7 @@ static CCMPDatabase *sharedInstance;
 }
 
 
-#pragma mark Attachments
+#pragma mark - Attachments
 
 - (CCMPAttachmentMO *)getAttachmentForAttachmentId:(NSNumber *)attachment {
     NSArray *result = [CCMPAttachmentMO MR_findByAttribute: @"attachmentId"
@@ -315,6 +313,17 @@ static CCMPDatabase *sharedInstance;
     attachment.attachmentURL = [url absoluteString];
     
     return attachment;
+}
+
+
+#pragma mark - Private methods
+
+- (void)updateBadgeCounter {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incoming = 1 AND read = 0"];
+    NSUInteger unreadCount = [CCMPMessageMO MR_countOfEntitiesWithPredicate:predicate];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount];
+    
+    LOG(@"Set badge counter %d", (int)unreadCount);
 }
 
 @end
