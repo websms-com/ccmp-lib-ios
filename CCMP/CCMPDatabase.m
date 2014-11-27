@@ -235,6 +235,8 @@ static CCMPDatabase *sharedInstance;
     }
     
     [message MR_deleteInContext:[NSManagedObjectContext MR_contextForCurrentThread]];
+    
+    [self updateBadgeCounter];
 }
 
 - (NSFetchedResultsController *)messageResultControllerWithOutgoing:(BOOL)outgoing {
