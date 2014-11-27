@@ -7,7 +7,6 @@
 //
 
 #import "CCMPAPIAbstractOperation.h"
-#import <Reachability/Reachability.h>
 #import <AFNetworking/AFNetworking.h>
 #import <UIDevice+HardwareModel/UIDevice+HardwareModel.h>
 
@@ -76,19 +75,6 @@ const int kRequestTimeout = 15.0;
         [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding],
         [request.allHTTPHeaderFields objectForKey:@"X-Api-Key"],
         [request.allHTTPHeaderFields objectForKey:@"Content-Type"]);
-    
-    // Check server reachability
-    Reachability *reachability = [Reachability reachabilityWithHostname:[self apiDomain]];
-    if ([reachability currentReachabilityStatus] == NotReachable) {
-        LOG(@"Could not reach domain = %@", [self apiDomain]);
-        
-        error = [NSError errorWithDomain: errorDomain
-                                    code: 503
-                                userInfo: @{NSLocalizedDescriptionKey: [NSHTTPURLResponse localizedStringForStatusCode:503]}];
-        
-        [self requestFinishedWithResult:nil andStatusCode:503];
-        return;
-    }
 
     // Send request
     LOG(@"Send %@", NSStringFromClass([self class]));

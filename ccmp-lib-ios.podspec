@@ -17,7 +17,6 @@ Pod::Spec.new do |spec|
   spec.framework       		= 'SystemConfiguration'
   
   spec.dependency 'AFNetworking', '1.3.3'
-  spec.dependency 'Reachability'
   spec.dependency 'MagicalRecord'
   spec.dependency 'UIDevice+HardwareModel', '~> 1.2'
   

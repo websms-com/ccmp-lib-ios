@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>805D90A4-51B4-49C3-8FCB-E77027A4DE74</string>
+	<string>47D61CF2-0638-46E3-A175-92A2B42A00A0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CCMP</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>789365DF32D61074BDB847F8BD7FAFB0135723FE</key>
-		<string>https://github.com/websms-com/ccmp-lib-ios.git</string>
+		<string>github.com:websms-com/ccmp-lib-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CCMP.xcworkspace</string>
@@ -21,7 +21,7 @@
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/websms-com/ccmp-lib-ios.git</string>
+	<string>github.com:websms-com/ccmp-lib-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
