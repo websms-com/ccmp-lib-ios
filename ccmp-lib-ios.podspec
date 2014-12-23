@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name             = 'ccmp-lib-ios'
-  spec.version          = '1.1.2'
+  spec.version          = '1.2'
   spec.license          = { :type => 'Commercial', :text => 'See https://websms.com' }
   spec.homepage         = 'https://websms.com'
   spec.authors          = { 'websms.com' => 'sms2app@websms.com' }
@@ -17,6 +17,7 @@ Pod::Spec.new do |spec|
   spec.framework       		= 'SystemConfiguration'
   
   spec.dependency 'AFNetworking', '1.3.3'
+  spec.dependency 'CLog'
   spec.dependency 'MagicalRecord'
   spec.dependency 'UIDevice+HardwareModel', '~> 1.2'
   

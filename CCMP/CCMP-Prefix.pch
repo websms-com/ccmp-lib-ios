@@ -7,8 +7,7 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
+    #import <CLog/CLogService.h>
     #import "CCMPUtils.h"
     #import "CCMP.h"
 #endif
-
-#define LOG(fmt, ...) if (SharedCCMP.enableLogging) NSLog((@"%s (%d) \n\t" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)

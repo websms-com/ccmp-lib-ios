@@ -15,11 +15,6 @@
 @interface CCMP : NSObject
 
 /**
- * Enable logging. Should only be activated for debugging purpose!!
- */
-@property (nonatomic, assign) BOOL enableLogging;
-
-/**
  * API-Key for requests with the CCMP
  */
 @property (nonatomic, retain) NSString *apiKey;

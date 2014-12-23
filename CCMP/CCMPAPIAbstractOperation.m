@@ -69,7 +69,7 @@ const int kRequestTimeout = 15.0;
 #pragma mark - Run cycle
 
 - (void)main {
-    LOG(@"Configure %@ ...\n\tRequest URL = %@\n\tRequest HTTP-Body = %@\n\tX-Api-Key = %@\n\tContent-Type = %@",
+    CLogDebug(@"Configure %@ ...\n\tRequest URL = %@\n\tRequest HTTP-Body = %@\n\tX-Api-Key = %@\n\tContent-Type = %@",
         NSStringFromClass([self class]),
         request.URL.absoluteURL,
         [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding],
@@ -77,7 +77,7 @@ const int kRequestTimeout = 15.0;
         [request.allHTTPHeaderFields objectForKey:@"Content-Type"]);
 
     // Send request
-    LOG(@"Send %@", NSStringFromClass([self class]));
+    CLogDebug(@"Send %@", NSStringFromClass([self class]));
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
     __block NSHTTPURLResponse *response = nil;
@@ -94,17 +94,17 @@ const int kRequestTimeout = 15.0;
             break;
         }
         
-        LOG(@"Retry %@ because of %@", NSStringFromClass([self class]), connectionError);
+        CLogDebug(@"Retry %@ because of %@", NSStringFromClass([self class]), connectionError);
         [NSThread sleepForTimeInterval:1.0];
     }
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    LOG(@"Finished %@", NSStringFromClass([self class]));
+    CLogDebug(@"Finished %@", NSStringFromClass([self class]));
     
     // Evaluate response
     NSInteger statusCode = [response statusCode];
     
-    LOG(@"PLAIN RESPONSE DATA - %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+    CLogVerbose(@"PLAIN RESPONSE DATA - %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
 
     if (statusCode != 200 && statusCode != 201) {
         error = [NSError errorWithDomain: errorDomain
@@ -236,7 +236,7 @@ const int kRequestTimeout = 15.0;
 #pragma mark - Methods that sould be overridden
 
 - (void)requestFinishedWithResult:(id)jsonResult andStatusCode:(NSInteger)statusCode {
-    LOG(@"%@ finished with StatusCode = %ld and Result:\n%@", NSStringFromClass([self class]), (long)statusCode, jsonResult);
+    CLogDebug(@"%@ finished with StatusCode = %ld and Result:\n%@", NSStringFromClass([self class]), (long)statusCode, jsonResult);
 }
 
 @end

@@ -19,7 +19,7 @@
 }
 
 - (void)setPushRegistrationToken:(NSString *)pushRegistrationToken {
-    LOG(@"setPushRegistrationToken = %@", pushRegistrationToken);
+    CLogVerbose(@"setPushRegistrationToken = %@", pushRegistrationToken);
     [[NSUserDefaults standardUserDefaults] setObject:pushRegistrationToken forKey:@"pushRegistrationToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -29,7 +29,7 @@
 }
 
 - (void)setMsisdn:(NSNumber *)msisdn {
-    LOG(@"setMsisdn = %@", msisdn);
+    CLogVerbose(@"setMsisdn = %@", msisdn);
     [[NSUserDefaults standardUserDefaults] setObject:msisdn forKey:@"msisdn"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -39,7 +39,7 @@
 }
 
 - (void)setDeviceToken:(NSString *)deviceToken {
-    LOG(@"setDeviceToken = %@", deviceToken);
+    CLogVerbose(@"setDeviceToken = %@", deviceToken);
     [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:@"deviceToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -49,7 +49,7 @@
 }
 
 - (void)setPin:(NSString *)pin {
-    LOG(@"setPin = %@", pin);
+    CLogVerbose(@"setPin = %@", pin);
     [[NSUserDefaults standardUserDefaults] setObject:pin forKey:@"pin"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -59,7 +59,7 @@
 }
 
 - (void)setCcmpConfig:(NSDictionary *)ccmpConfig {
-    LOG(@"setCcmpConfig = %@", ccmpConfig);
+    CLogVerbose(@"setCcmpConfig = %@", ccmpConfig);
     [[NSUserDefaults standardUserDefaults] setObject:ccmpConfig forKey:@"ccmpConfig"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

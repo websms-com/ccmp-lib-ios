@@ -17,7 +17,6 @@
 
 
 @implementation CCMP
-@synthesize enableLogging;
 @synthesize apiKey, apiBaseURL;
 @synthesize database;
 
@@ -33,9 +32,9 @@ static CCMP *sharedInstance;
 
 - (id)init {
 	if (sharedInstance) {
-        LOG(@"Initialize (reuse) %@ ...", NSStringFromClass([self class]));
+        CLogDebug(@"Initialize (reuse) %@ ...", NSStringFromClass([self class]));
 	} else if ((self = sharedInstance = [super init])) {
-        LOG(@"Initialize %@ ...", NSStringFromClass([self class]));
+        CLogInfo(@"Initialize %@ ...", NSStringFromClass([self class]));
         
         database = [[CCMPDatabase alloc] init];
         api = [[CCMPApi alloc] init];
@@ -47,7 +46,7 @@ static CCMP *sharedInstance;
 - (id)initWithNewInstance {
     self = [super init];
     if (self) {
-        LOG(@"Initialize new Instance of %@ ...", NSStringFromClass([self class]));
+        CLogInfo(@"Initialize new Instance of %@ ...", NSStringFromClass([self class]));
         
         database = [CCMPDatabase sharedDB];
         api = [[CCMPApi alloc] initWithNewInstance];
@@ -61,7 +60,7 @@ static CCMP *sharedInstance;
 #pragma mark - APNS-Notification handling
 
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    LOG(@"didRegisterForRemoteNotificationsWithDeviceToken: - %@", deviceToken);
+    CLogDebug(@"didRegisterForRemoteNotificationsWithDeviceToken: - %@", deviceToken);
     
     NSString *newToken = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
                                                       stringByReplacingOccurrencesOfString: @">" withString: @""]
@@ -79,7 +78,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    LOG(@"didFailToRegisterForRemoteNotificationsWithError: - %@", error);
+    CLogError(@"didFailToRegisterForRemoteNotificationsWithError: - %@", error);
     
     if ([self isRegistered]) {
         [self updateDevice: CCMPUserDefaults.deviceToken
@@ -89,7 +88,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    LOG(@"didReceiveRemoteNotification: - %@", userInfo);
+    CLogDebug(@"didReceiveRemoteNotification: - %@", userInfo);
     
     if ([self isRegistered]) {
         [self updateInbox];
@@ -97,7 +96,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)didReceiveLocalNotification:(UILocalNotification *)notification {
-    LOG(@"didReceiveLocalNotification: - %@", notification.userInfo);
+    CLogDebug(@"didReceiveLocalNotification: - %@", notification.userInfo);
     
     if ([self isRegistered]) {
         [self updateInbox];
@@ -105,7 +104,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
-    LOG(@"didReceiveRemoteNotification:fetchCompletionHandler: - %@", userInfo);
+    CLogDebug(@"didReceiveRemoteNotification:fetchCompletionHandler: - %@", userInfo);
     
     if ([self isRegistered]) {
         [self updateInboxWithCompletion:^(NSError *err){
@@ -139,7 +138,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)logout {
-    LOG(@"logout");
+    CLogInfo();
     
     CCMPAPIDeviceUpdateOperation *op = [api updateDevice: CCMPUserDefaults.deviceToken
                                               withMSISDN: CCMPUserDefaults.msisdn
@@ -166,7 +165,7 @@ static CCMP *sharedInstance;
 #pragma mark - Registration & Verification
 
 - (void)sendPinRequest:(NSNumber *)msisdn {
-    LOG(@"sendPinRequest: - %@", msisdn);
+    CLogDebug(@"msisdn = %@", msisdn);
     
     if (msisdn == nil || [msisdn stringValue].length < 4) {
         [NSException throwException:@"A is in the wrong format - %@", msisdn];
@@ -202,7 +201,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)verifyMsisdn:(NSNumber *)msisdn withPin:(NSString *)pin {
-    LOG(@"verifyMsisdn:withPin: - %@ | %@", msisdn, pin);
+    CLogDebug(@"msisdn = %@, pin = %@", msisdn, pin);
     
     if (msisdn == nil || [msisdn stringValue].length < 4) {
         [NSException throwException:@"MSISDN is in the wrong format - %@", msisdn];
@@ -240,7 +239,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)updateDevice:(NSString *)device withMsisdn:(NSNumber *)msisdn andPushId:(NSString *)pushId {
-    LOG(@"updateDevice:withMsisdn:andPushId: - %@ | %@ | %@", device, msisdn, pushId);
+    CLogDebug(@"device = %@, msisdn = %@, pushId = %@", device, msisdn, pushId);
     
     CCMPAPIDeviceUpdateOperation *updateOP = [api updateDevice: device
                                                     withMSISDN: msisdn
@@ -286,8 +285,6 @@ static CCMP *sharedInstance;
 #pragma mark - Inbox / Outbox
 
 - (void)updateInbox {
-    LOG(@"updateInbox");
-    
     [self updateInboxWithCompletion:nil];
 }
 
@@ -295,6 +292,8 @@ static CCMP *sharedInstance;
     if (![self isRegistered]) {
         [NSException throwException:@"Device is not registrated"];
     }
+    
+    CLogDebug();
     
     CCMPAPIInboxFetchOperation *op = [api getMessagesFrom: CCMPUserDefaults.deviceToken
                                             fromMessageId: nil
@@ -384,7 +383,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)sendMessage:(NSString *)text toRecipient:(NSString *)address inReplyTo:(NSNumber *)messageId {
-    LOG(@"sendMessage:toRecipient: - %@ | %@", text, address);
+    CLogDebug(@"message = %@, recipient = %@", text, address);
     
     if (text.length == 0) {
         [NSException throwException:@"Can't send empty message"];
@@ -417,7 +416,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)sendMessage:(NSString *)text andAttachment:(NSData *)attachment withMimeType:(NSString *)mimeType toRecipient:(NSString *)address inReplyTo:(NSNumber *)messageId {
-    LOG(@"sendAttachment:toRecipient: - %@ | %@", attachment.description, address);
+    CLogDebug(@"message = %@, attachment = %@, recipient = %@", text, attachment.description, address);
     
     if (attachment.length == 0) {
         [NSException throwException:@"Can't send empty attachment"];
@@ -433,7 +432,7 @@ static CCMP *sharedInstance;
     
     [op1 setCompletionBlock:^{
         if (bop1.response.statusCode.intValue != HTTPStatusCodeCreated) {
-            LOG(@"Upload Failed: %@", bop1.error);
+            CLogError(@"Upload failed: %@", bop1.error);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationAttachmentUploadFailed
@@ -450,7 +449,7 @@ static CCMP *sharedInstance;
             
             [op2 setCompletionBlock:^{
                 if (bop2.response.statusCode.intValue != HTTPStatusCodeOK) {
-                    LOG(@"Get Attachment URL Failed: %@", bop2.error);
+                    CLogError(@"Get attachmentUrl failed: %@", bop2.error);
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationAttachmentUploadFailed
@@ -486,7 +485,7 @@ static CCMP *sharedInstance;
     
     [op setCompletionBlock:^{
         if (bop.response.statusCode.intValue != HTTPStatusCodeOK) {
-            LOG(@"Sending Failed: %@", bop.error);
+            CLogError(@"Sending Failed: %@", bop.error);
             [self sendFallbackMessage:msg];
             return;
         }
@@ -545,7 +544,7 @@ static CCMP *sharedInstance;
     
     // Check message result
     if (result == MessageComposeResultFailed) {
-        LOG("Failed to send SMS ... MessageComposeResultFailed");
+        CLogError("Failed to send SMS ... MessageComposeResultFailed");
         
         [database updateMessage: message
                         content: nil
@@ -553,12 +552,12 @@ static CCMP *sharedInstance;
                          status: CCMPMessageStatusFailed
                     sendChannel: CCMPMessageSendChannelNone];
     } else if (result == MessageComposeResultCancelled) {
-        LOG("Failed to send SMS ... MessageComposeResultCancelled");
+        CLogError("Failed to send SMS ... MessageComposeResultCancelled");
         
         [database deleteMessage: message
                   andReferences: NO];
     } else {
-        LOG(@"SMS sent ... MessageComposeResultSent");
+        CLogError(@"SMS sent ... MessageComposeResultSent");
         
         [database updateMessage: message
                         content: nil

@@ -84,7 +84,7 @@ static CCMPDatabase *sharedInstance;
 }
 
 - (void)wipeDatabase {
-    LOG(@"Wipe database ...");
+    CLogInfo(@"Wipe database ...");
     [self deleteAllObjects:[CCMPMessageMO class]];
 }
 
@@ -153,7 +153,7 @@ static CCMPDatabase *sharedInstance;
             message.reference = [_delegate database:self setReferenceForMessage:message];
         }
         
-        LOG(@"Insert new message - %@", message);
+        CLogDebug(@"Insert new message - %@", message);
         
         if ([_delegate respondsToSelector:@selector(database:shouldInsertMessage:)]) {
             [_delegate database:self shouldInsertMessage:message];
@@ -183,7 +183,7 @@ static CCMPDatabase *sharedInstance;
     message.status = [NSNumber numberWithInteger:status];
     message.sendChannel = [NSNumber numberWithInteger:channel];
     
-    LOG(@"Update message - %@", message);
+    CLogDebug(@"Update message - %@", message);
     
     [self updateBadgeCounter];
     
@@ -195,7 +195,7 @@ static CCMPDatabase *sharedInstance;
     
     message.read = [NSNumber numberWithBool:read];
     
-    LOG(@"Update message - %@", message);
+    CLogDebug(@"Update message - %@", message);
     
     [self updateBadgeCounter];
     
@@ -276,7 +276,7 @@ static CCMPDatabase *sharedInstance;
         account = [CCMPAccountMO MR_createInContext:[self localContext]];
         account.accountId = accountId;
         
-        LOG(@"Insert new account - %@", accountId);
+        CLogDebug(@"Insert new account - %@", accountId);
     }
     
     account.displayName = name;
@@ -306,7 +306,7 @@ static CCMPDatabase *sharedInstance;
         attachment = [CCMPAttachmentMO MR_createInContext:[self localContext]];
         attachment.attachmentId = attachmentId;
 
-        LOG(@"Insert new attachment - %@", attachmentId);
+        CLogDebug(@"Insert new attachment - %@", attachmentId);
     }
     
     attachment.fileName = fileName;
@@ -325,7 +325,7 @@ static CCMPDatabase *sharedInstance;
     NSUInteger unreadCount = [CCMPMessageMO MR_countOfEntitiesWithPredicate:predicate];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount];
     
-    LOG(@"Set badge counter %d", (int)unreadCount);
+    CLogInfo(@"Set badge counter %d", (int)unreadCount);
 }
 
 @end

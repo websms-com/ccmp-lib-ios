@@ -6,3 +6,4 @@ inhibit_all_warnings!
 pod 'AFNetworking', '1.3.3'
 pod 'MagicalRecord' 
 pod 'UIDevice+HardwareModel', '~> 1.2'
+pod 'CLog', :git => 'https://github.com/mysms/clog.git'
