@@ -74,9 +74,12 @@ static CCMP *sharedInstance;
     
     // Check if newToken is equal to cached pushId
     if (!CCMPUserDefaults.pushRegistrationToken || ![CCMPUserDefaults.pushRegistrationToken isEqualToString:newToken]) {
+        CLogInfo(@"Update device because cached pushId is invalid (%@)", CCMPUserDefaults.pushRegistrationToken);
+        
         [self updateDevice: CCMPUserDefaults.deviceToken
                 withMsisdn: CCMPUserDefaults.msisdn
                  andPushId: newToken];
+        
     } else {
         
         // When pushId is not equal get the device information from server and compare the result with newToken
@@ -91,6 +94,9 @@ static CCMP *sharedInstance;
             
             NSString *pushId = blockOp.response.pushId;
             if (pushId == nil || ![pushId isEqualToString:newToken]) {
+                
+                CLogInfo(@"Update device because local and remote pushId are not equal or remote pushId is null");
+                
                 [weakSelf updateDevice: CCMPUserDefaults.deviceToken
                             withMsisdn: CCMPUserDefaults.msisdn
                              andPushId: newToken];
