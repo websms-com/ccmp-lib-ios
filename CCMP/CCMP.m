@@ -62,21 +62,44 @@ static CCMP *sharedInstance;
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     CLogDebug(@"didRegisterForRemoteNotificationsWithDeviceToken: - %@", deviceToken);
     
-    NSString *newToken = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                                                      stringByReplacingOccurrencesOfString: @">" withString: @""]
-                                                      stringByReplacingOccurrencesOfString: @" " withString: @""];
-    
     if (![self isRegistered]) {
         CLogWarn(@"Can't update pushId because user is not registered");
         return;
     }
     
+    // Parse pushId
+    __block NSString *newToken = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                                                              stringByReplacingOccurrencesOfString: @">" withString: @""]
+                                                              stringByReplacingOccurrencesOfString: @" " withString: @""];
+    
+    // Check if newToken is equal to cached pushId
     if (!CCMPUserDefaults.pushRegistrationToken || ![CCMPUserDefaults.pushRegistrationToken isEqualToString:newToken]) {
         [self updateDevice: CCMPUserDefaults.deviceToken
                 withMsisdn: CCMPUserDefaults.msisdn
                  andPushId: newToken];
     } else {
-        CLogDebug(@"Supress pushId update because local and new pushId are equal");
+        
+        // When pushId is not equal get the device information from server and compare the result with newToken
+        CCMPAPIDeviceGetOperation *op = [api getDevice:CCMPUserDefaults.deviceToken];
+        
+        __block typeof(op) blockOp = op;
+        __weak typeof(self) weakSelf = self;
+        [op setCompletionBlock:^{
+            if (blockOp.response.statusCode.intValue != HTTPStatusCodeOK) {
+                return;
+            }
+            
+            NSString *pushId = blockOp.response.pushId;
+            if (pushId == nil || ![pushId isEqualToString:newToken]) {
+                [weakSelf updateDevice: CCMPUserDefaults.deviceToken
+                            withMsisdn: CCMPUserDefaults.msisdn
+                             andPushId: newToken];
+            } else {
+                CLogDebug(@"Supress pushId update because local and remote pushId are equal");
+            }
+        }];
+        
+        [api.queue addOperation:op];
     }
 }
 
@@ -259,9 +282,7 @@ static CCMP *sharedInstance;
                 [CCMPUserDefaults setMsisdn:msisdn];
             }
             
-            if (pushId) {
-                [CCMPUserDefaults setPushRegistrationToken:pushId];
-            }
+            [CCMPUserDefaults setPushRegistrationToken:pushId];
             
             [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationDeviceUpdated
                                                                 object: nil];
