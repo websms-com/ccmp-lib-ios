@@ -66,14 +66,17 @@ static CCMP *sharedInstance;
                                                       stringByReplacingOccurrencesOfString: @">" withString: @""]
                                                       stringByReplacingOccurrencesOfString: @" " withString: @""];
     
-    if (![CCMPUserDefaults.pushRegistrationToken isEqualToString:newToken]) {
-        [CCMPUserDefaults setPushRegistrationToken:newToken];
-        
-        if ([self isRegistered]) {
-            [self updateDevice: CCMPUserDefaults.deviceToken
-                    withMsisdn: CCMPUserDefaults.msisdn
-                     andPushId: newToken];
-        }
+    if (![self isRegistered]) {
+        CLogWarn(@"Can't update pushId because user is not registered");
+        return;
+    }
+    
+    if (!CCMPUserDefaults.pushRegistrationToken || ![CCMPUserDefaults.pushRegistrationToken isEqualToString:newToken]) {
+        [self updateDevice: CCMPUserDefaults.deviceToken
+                withMsisdn: CCMPUserDefaults.msisdn
+                 andPushId: newToken];
+    } else {
+        CLogDebug(@"Supress pushId update because local and new pushId are equal");
     }
 }
 
