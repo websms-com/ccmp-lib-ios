@@ -86,6 +86,15 @@
  */
 - (void)didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler NS_AVAILABLE_IOS(7_0);
 
+/**
+ * Tells the app that a push notification action was triggered.
+ * You need to handle the actions in your own app. The library only adds an entry to the log.
+ * To configure the identifer please contact your websms keyaccount manager.
+ *
+ * @see handleActionWithIdentifier:forRemoteNotification:completionHandler:
+ */
+- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler NS_AVAILABLE_IOS(8_0);
+
 
 #pragma mark
 #pragma mark - Utils

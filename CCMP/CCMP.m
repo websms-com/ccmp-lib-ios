@@ -116,6 +116,8 @@ static CCMP *sharedInstance;
         [self updateDevice: CCMPUserDefaults.deviceToken
                 withMsisdn: CCMPUserDefaults.msisdn
                  andPushId: nil];
+    } else {
+        CLogWarn(@"Try to reset pushId, but user is not authenticated");
     }
 }
 
@@ -124,6 +126,8 @@ static CCMP *sharedInstance;
     
     if ([self isRegistered]) {
         [self updateInbox];
+    } else {
+        CLogWarn(@"Try to update inbox, but user is not authenticated");
     }
 }
 
@@ -132,6 +136,8 @@ static CCMP *sharedInstance;
     
     if ([self isRegistered]) {
         [self updateInbox];
+    } else {
+        CLogWarn(@"Try to update inbox, but user is not authenticated");
     }
 }
 
@@ -146,7 +152,14 @@ static CCMP *sharedInstance;
                 completionHandler(UIBackgroundFetchResultNewData);
             }
         }];
+    } else {
+        CLogWarn(@"Try to update inbox, but user is not authenticated");
+        completionHandler(UIBackgroundFetchResultNoData);
     }
+}
+
+- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler {
+    CLogDebug(@"handleActionWithIdentifier:forRemoteNotification:fetchCompletionHandler: - %@ | %@", identifier, userInfo);
 }
 
 
