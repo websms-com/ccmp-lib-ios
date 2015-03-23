@@ -12,6 +12,7 @@
 
 @interface CCMP () <CCMPApiDelegate, MFMessageComposeViewControllerDelegate> {
     CCMPApi *api;
+    __block NSString *cachedPushId;
 }
 @end
 
@@ -68,17 +69,17 @@ static CCMP *sharedInstance;
     }
     
     // Parse pushId
-    __block NSString *newToken = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                                                              stringByReplacingOccurrencesOfString: @">" withString: @""]
-                                                              stringByReplacingOccurrencesOfString: @" " withString: @""];
+    cachedPushId = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                                                stringByReplacingOccurrencesOfString: @">" withString: @""]
+                                                stringByReplacingOccurrencesOfString: @" " withString: @""];
     
     // Check if newToken is equal to cached pushId
-    if (!CCMPUserDefaults.pushRegistrationToken || ![CCMPUserDefaults.pushRegistrationToken isEqualToString:newToken]) {
+    if (!CCMPUserDefaults.pushRegistrationToken || ![CCMPUserDefaults.pushRegistrationToken isEqualToString:cachedPushId]) {
         CLogInfo(@"Update device because cached pushId is invalid (%@)", CCMPUserDefaults.pushRegistrationToken);
         
         [self updateDevice: CCMPUserDefaults.deviceToken
                 withMsisdn: CCMPUserDefaults.msisdn
-                 andPushId: newToken];
+                 andPushId: cachedPushId];
         
     } else {
         
@@ -93,13 +94,13 @@ static CCMP *sharedInstance;
             }
             
             NSString *pushId = blockOp.response.pushId;
-            if (pushId == nil || ![pushId isEqualToString:newToken]) {
+            if (pushId == nil || ![pushId isEqualToString:cachedPushId]) {
                 
                 CLogInfo(@"Update device because local and remote pushId are not equal or remote pushId is null");
                 
                 [weakSelf updateDevice: CCMPUserDefaults.deviceToken
                             withMsisdn: CCMPUserDefaults.msisdn
-                             andPushId: newToken];
+                             andPushId: cachedPushId];
             } else {
                 CLogDebug(@"Supress pushId update because local and remote pushId are equal");
             }
@@ -269,9 +270,10 @@ static CCMP *sharedInstance;
         
         [CCMPUserDefaults setPin:pin];
         
+        // Update the pushId after the registration process
         [self updateDevice: CCMPUserDefaults.deviceToken
                 withMsisdn: CCMPUserDefaults.msisdn
-                 andPushId: CCMPUserDefaults.pushRegistrationToken];
+                 andPushId: cachedPushId];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationVerifiedDevice
