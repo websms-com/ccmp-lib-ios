@@ -15,6 +15,7 @@
 @dynamic cacheKey;
 @dynamic displayName;
 @dynamic refreshTimestamp;
+@dynamic lastMessageDate;
 
 @dynamic message;
 

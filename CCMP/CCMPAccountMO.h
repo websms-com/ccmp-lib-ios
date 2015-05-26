@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSString *cacheKey;
 @property (nonatomic, retain) NSString *displayName;
 @property (nonatomic, retain) NSDate *refreshTimestamp;
+@property (nonatomic, retain) NSDate *lastMessageDate;
 
 @property (nonatomic, retain) NSManagedObject *message;
 

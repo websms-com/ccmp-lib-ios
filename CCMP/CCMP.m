@@ -407,14 +407,15 @@ static CCMP *sharedInstance;
                     [accountOp main];
                     
                     if ([accountOp.response.statusCode integerValue] == HTTPStatusCodeOK) {
-                        message.account = [database addAccountWithId: msg.accountId
-                                                         displayName: accountOp.response.displayName
-                                                           avatarURL: [NSURL URLWithString:accountOp.response.displayImageUrl]];
-                        message.account.refreshTimestamp = msg.accountRefreshTimestamp;
+                        account = [database addAccountWithId: msg.accountId
+                                                 displayName: accountOp.response.displayName
+                                                   avatarURL: [NSURL URLWithString:accountOp.response.displayImageUrl]];
+                        account.refreshTimestamp = msg.accountRefreshTimestamp;
                     }
-                } else {
-                    message.account = account;
                 }
+                
+                message.account = account;
+                account.lastMessageDate = message.date;
             }
         }
         
