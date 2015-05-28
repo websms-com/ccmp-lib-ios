@@ -454,7 +454,9 @@ static CCMP *sharedInstance;
                                                                   date: [NSDate date]];
     
     if (messageId) {
-        message.inReplyTo = [database getMessageWithId:messageId];
+        CCMPMessageMO *replyMessage = [database getMessageWithId:messageId];
+        message.inReplyTo = replyMessage;
+        message.account = replyMessage.account;
     }
     
     [database commit:^(BOOL success) {
