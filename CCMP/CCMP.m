@@ -448,7 +448,7 @@ static CCMP *sharedInstance;
                                                                content: text
                                                              recipient: address
                                                               incoming: NO
-                                                                  read: NO
+                                                                  read: YES
                                                                 status: CCMPMessageStatusQueued
                                                            sendChannel: CCMPMessageSendChannelNone
                                                                   date: [NSDate date]];
