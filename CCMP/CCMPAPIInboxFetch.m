@@ -43,6 +43,24 @@
         message.accountRefreshTimestamp = [CCMPUtils convertFromApiDate:[dict objectForKey:@"accountTimestamp"]];
         message.accountId = [dict objectForKey:@"accountId"];
         message.additionalPushParameter = [dict objectForKey:@"additionalPushParameter"];
+        
+        // Check for overruling replyable field in additionalPushParameters
+        if (message.additionalPushParameter) {
+            NSError *err = nil;
+            NSData *data = [message.additionalPushParameter dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary *jsonObj = [NSJSONSerialization JSONObjectWithData: data
+                                                                    options: 0
+                                                                      error: &err];
+            
+            if (jsonObj && !err) {
+                if ([jsonObj isKindOfClass:[NSDictionary class]]) {
+                    NSNumber *replyable = [jsonObj objectForKey:@"replyable"];
+                    if (replyable) {
+                        message.replyable = [replyable boolValue];
+                    }
+                }
+            }
+        }
 
         [arr addObject:message];
     }

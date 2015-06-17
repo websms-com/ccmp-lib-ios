@@ -12,6 +12,7 @@
 @interface CCMPAPIAccountGetResponse : CCMPAPIAbstractResponse
 @property (nonatomic, retain) NSString *displayName;
 @property (nonatomic, retain) NSString *displayImageUrl;
+@property (nonatomic, assign) BOOL replyable;
 @end
 
 @interface CCMPAPIAccountGetOperation : CCMPAPIAbstractOperation

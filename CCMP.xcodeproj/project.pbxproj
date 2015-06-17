@@ -197,6 +197,7 @@
 		F6E118C018D8730A004204BF /* CCMPAPIAccountGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIAccountGet.m; sourceTree = "<group>"; };
 		F6E1191118DC358E004204BF /* CCMPAPIConfigurationKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPAPIConfigurationKey.h; sourceTree = "<group>"; };
 		F6E1191218DC358E004204BF /* CCMPAPIConfigurationKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPAPIConfigurationKey.m; sourceTree = "<group>"; };
+		F6EBBD071B3179F600F9AC3D /* CCMPDatabaseModel 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 7.xcdatamodel"; sourceTree = "<group>"; };
 		F6EF331518311A1400EF6D00 /* NSUserDefaults+CCMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+CCMP.h"; sourceTree = "<group>"; };
 		F6EF331618311A1400EF6D00 /* NSUserDefaults+CCMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+CCMP.m"; sourceTree = "<group>"; };
 		F6EF331B1831236800EF6D00 /* CCMPVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMPVariables.h; sourceTree = "<group>"; };
@@ -911,6 +912,7 @@
 		F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F6EBBD071B3179F600F9AC3D /* CCMPDatabaseModel 7.xcdatamodel */,
 				F6B58AD21B1464B5005149CE /* CCMPDatabaseModel 6.xcdatamodel */,
 				F6E118AF18D31217004204BF /* CCMPDatabaseModel 5.xcdatamodel */,
 				F612E74418D09CC3004FE0C5 /* CCMPDatabaseModel 4.xcdatamodel */,
@@ -918,7 +920,7 @@
 				F69B81031844CAB100C7210B /* CCMPDatabaseModel 2.xcdatamodel */,
 				F69B80D41844845800C7210B /* CCMPDatabaseModel.xcdatamodel */,
 			);
-			currentVersion = F6B58AD21B1464B5005149CE /* CCMPDatabaseModel 6.xcdatamodel */;
+			currentVersion = F6EBBD071B3179F600F9AC3D /* CCMPDatabaseModel 7.xcdatamodel */;
 			path = CCMPDatabaseModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

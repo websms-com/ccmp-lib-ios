@@ -410,6 +410,8 @@ static CCMP *sharedInstance;
                         account = [database addAccountWithId: msg.accountId
                                                  displayName: accountOp.response.displayName
                                                    avatarURL: [NSURL URLWithString:accountOp.response.displayImageUrl]];
+                        
+                        account.replyable = [NSNumber numberWithBool:accountOp.response.replyable];
                         account.refreshTimestamp = msg.accountRefreshTimestamp;
                     }
                 }
