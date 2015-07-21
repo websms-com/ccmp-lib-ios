@@ -8,6 +8,11 @@
 
 #import <CoreData/CoreData.h>
 #import "CCMPMessageMO.h"
+#import "CCMPMessageMO+Extension.h"
+#import "CCMPAccountMO.h"
+#import "CCMPAccountMO+Extensions.h"
+#import "CCMPAttachmentMO.h"
+#import "CCMPAttachmentMO+Extension.h"
 
 #define SharedDB [CCMPDatabase sharedDB]
 

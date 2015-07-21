@@ -83,6 +83,12 @@
 		F69B80C6184391B800C7210B /* CCMPAPIOutbox.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80C5184391B800C7210B /* CCMPAPIOutbox.m */; };
 		F69B80CB18439D1700C7210B /* CCMPAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B80CA18439D1700C7210B /* CCMPAPIConfiguration.m */; };
 		F69B80D51844845900C7210B /* CCMPDatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */; };
+		F69FC1FE1B5E79CA003E10CF /* CCMPAttachmentMO+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FC1FD1B5E79CA003E10CF /* CCMPAttachmentMO+Extension.m */; };
+		F69FC2011B5E7A63003E10CF /* CCMPMessageMO+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FC2001B5E7A63003E10CF /* CCMPMessageMO+Extension.m */; };
+		F69FC2041B5E7A9B003E10CF /* CCMPAccountMO+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FC2031B5E7A9B003E10CF /* CCMPAccountMO+Extensions.m */; };
+		F69FC2051B5E7AF5003E10CF /* CCMPAccountMO+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FC2031B5E7A9B003E10CF /* CCMPAccountMO+Extensions.m */; };
+		F69FC2061B5E7AFB003E10CF /* CCMPAttachmentMO+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FC1FD1B5E79CA003E10CF /* CCMPAttachmentMO+Extension.m */; };
+		F69FC2071B5E7AFE003E10CF /* CCMPMessageMO+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FC2001B5E7A63003E10CF /* CCMPMessageMO+Extension.m */; };
 		F6B5E24E184DD59700AE86B4 /* CCMPDatabaseModel.xcdatamodeld in CopyFiles */ = {isa = PBXBuildFile; fileRef = F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */; };
 		F6BA94A91920B04C00679411 /* CCMPApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F60454BA182A23930027C174 /* CCMPApiTests.m */; };
 		F6C1E77F182BA82300A371B6 /* CCMPAPIDeviceRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E77E182BA82300A371B6 /* CCMPAPIDeviceRegister.m */; };
@@ -176,6 +182,13 @@
 		F69B80D41844845800C7210B /* CCMPDatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CCMPDatabaseModel.xcdatamodel; sourceTree = "<group>"; };
 		F69B80D618448C8500C7210B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F69B81031844CAB100C7210B /* CCMPDatabaseModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		F69FC1FB1B5E7961003E10CF /* CCMPDatabaseModel 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 8.xcdatamodel"; sourceTree = "<group>"; };
+		F69FC1FC1B5E79CA003E10CF /* CCMPAttachmentMO+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCMPAttachmentMO+Extension.h"; sourceTree = "<group>"; };
+		F69FC1FD1B5E79CA003E10CF /* CCMPAttachmentMO+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCMPAttachmentMO+Extension.m"; sourceTree = "<group>"; };
+		F69FC1FF1B5E7A63003E10CF /* CCMPMessageMO+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCMPMessageMO+Extension.h"; sourceTree = "<group>"; };
+		F69FC2001B5E7A63003E10CF /* CCMPMessageMO+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCMPMessageMO+Extension.m"; sourceTree = "<group>"; };
+		F69FC2021B5E7A9B003E10CF /* CCMPAccountMO+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCMPAccountMO+Extensions.h"; sourceTree = "<group>"; };
+		F69FC2031B5E7A9B003E10CF /* CCMPAccountMO+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCMPAccountMO+Extensions.m"; sourceTree = "<group>"; };
 		F6B2201C185EDE8600BD1C01 /* CCMPDatabaseModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		F6B58AD21B1464B5005149CE /* CCMPDatabaseModel 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CCMPDatabaseModel 6.xcdatamodel"; sourceTree = "<group>"; };
 		F6C1E779182B97BD00A371B6 /* CCMPApiDeviceGetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMPApiDeviceGetTests.m; sourceTree = "<group>"; };
@@ -376,12 +389,18 @@
 		F69B80CF1844810A00C7210B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F68730471844D172000C6F06 /* CCMPMessageMO.h */,
-				F68730481844D172000C6F06 /* CCMPMessageMO.m */,
-				F612E74518D0A155004FE0C5 /* CCMPAttachmentMO.h */,
-				F612E74618D0A155004FE0C5 /* CCMPAttachmentMO.m */,
 				F612E74A18D0A220004FE0C5 /* CCMPAccountMO.h */,
 				F612E74B18D0A220004FE0C5 /* CCMPAccountMO.m */,
+				F69FC2021B5E7A9B003E10CF /* CCMPAccountMO+Extensions.h */,
+				F69FC2031B5E7A9B003E10CF /* CCMPAccountMO+Extensions.m */,
+				F612E74518D0A155004FE0C5 /* CCMPAttachmentMO.h */,
+				F612E74618D0A155004FE0C5 /* CCMPAttachmentMO.m */,
+				F69FC1FC1B5E79CA003E10CF /* CCMPAttachmentMO+Extension.h */,
+				F69FC1FD1B5E79CA003E10CF /* CCMPAttachmentMO+Extension.m */,
+				F68730471844D172000C6F06 /* CCMPMessageMO.h */,
+				F68730481844D172000C6F06 /* CCMPMessageMO.m */,
+				F69FC1FF1B5E7A63003E10CF /* CCMPMessageMO+Extension.h */,
+				F69FC2001B5E7A63003E10CF /* CCMPMessageMO+Extension.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -616,15 +635,18 @@
 				F6EF331718311A1400EF6D00 /* NSUserDefaults+CCMP.m in Sources */,
 				F65A46BE182A745B00229A48 /* CCMPApi.m in Sources */,
 				F6C1E784182BB86D00A371B6 /* CCMPAPIDeviceUpdate.m in Sources */,
+				F69FC2041B5E7A9B003E10CF /* CCMPAccountMO+Extensions.m in Sources */,
 				F65A46C5182A8CFE00229A48 /* CCMPAPIDeviceGet.m in Sources */,
 				F6C1E77F182BA82300A371B6 /* CCMPAPIDeviceRegister.m in Sources */,
 				F6607D88184CD00900393CD3 /* CCMPUtils.m in Sources */,
 				F69B80C118437A4500C7210B /* CCMPAPIInboxFetch.m in Sources */,
 				F69B80C6184391B800C7210B /* CCMPAPIOutbox.m in Sources */,
+				F69FC1FE1B5E79CA003E10CF /* CCMPAttachmentMO+Extension.m in Sources */,
 				F6C1E789182BBB7D00A371B6 /* CCMPAPIAbstractResponse.m in Sources */,
 				F6C1E793182CF05800A371B6 /* CCMPAPIDeviceVerification.m in Sources */,
 				F6EF331D1831236800EF6D00 /* CCMPVariables.m in Sources */,
 				F610020C1864268700A7D332 /* CCMPAPIAttachmentGet.m in Sources */,
+				F69FC2011B5E7A63003E10CF /* CCMPMessageMO+Extension.m in Sources */,
 				F610021C1864454300A7D332 /* NSData+CCMP.m in Sources */,
 				F69B80CB18439D1700C7210B /* CCMPAPIConfiguration.m in Sources */,
 				F612E74C18D0A220004FE0C5 /* CCMPAccountMO.m in Sources */,
@@ -640,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69FC2061B5E7AFB003E10CF /* CCMPAttachmentMO+Extension.m in Sources */,
 				F64B3370191A5B47002E34A3 /* CCMP.m in Sources */,
 				F64B3374191A5BA4002E34A3 /* NSData+CCMP.m in Sources */,
 				F64B3382191A65BA002E34A3 /* CCMPAPIDeviceVerificationTests.m in Sources */,
@@ -655,11 +678,13 @@
 				F64B3360191A5B20002E34A3 /* CCMPAPIDeviceRegister.m in Sources */,
 				F64B3367191A5B20002E34A3 /* CCMPAPIAttachmentUpload.m in Sources */,
 				F64B3366191A5B20002E34A3 /* CCMPAPIAttachmentGet.m in Sources */,
+				F69FC2071B5E7AFE003E10CF /* CCMPMessageMO+Extension.m in Sources */,
 				F64B335E191A5B20002E34A3 /* CCMPAPIAbstractResponse.m in Sources */,
 				F64B335D191A5A3C002E34A3 /* CCMPAPIAbstractOperation.m in Sources */,
 				F64B335F191A5B20002E34A3 /* CCMPAPIDeviceGet.m in Sources */,
 				F64B3368191A5B20002E34A3 /* CCMPAPIAccountGet.m in Sources */,
 				F64B3369191A5B20002E34A3 /* CCMPAPIConfigurationKey.m in Sources */,
+				F69FC2051B5E7AF5003E10CF /* CCMPAccountMO+Extensions.m in Sources */,
 				F64B3377191A5BF4002E34A3 /* CCMPApiAbstractOperationTests.m in Sources */,
 				F64B3371191A5B4A002E34A3 /* CCMPApi.m in Sources */,
 				F64B337F191A6150002E34A3 /* CCMPApiDeviceGetTests.m in Sources */,
@@ -912,6 +937,7 @@
 		F69B80D31844845800C7210B /* CCMPDatabaseModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F69FC1FB1B5E7961003E10CF /* CCMPDatabaseModel 8.xcdatamodel */,
 				F6EBBD071B3179F600F9AC3D /* CCMPDatabaseModel 7.xcdatamodel */,
 				F6B58AD21B1464B5005149CE /* CCMPDatabaseModel 6.xcdatamodel */,
 				F6E118AF18D31217004204BF /* CCMPDatabaseModel 5.xcdatamodel */,
@@ -920,7 +946,7 @@
 				F69B81031844CAB100C7210B /* CCMPDatabaseModel 2.xcdatamodel */,
 				F69B80D41844845800C7210B /* CCMPDatabaseModel.xcdatamodel */,
 			);
-			currentVersion = F6EBBD071B3179F600F9AC3D /* CCMPDatabaseModel 7.xcdatamodel */;
+			currentVersion = F69FC1FB1B5E7961003E10CF /* CCMPDatabaseModel 8.xcdatamodel */;
 			path = CCMPDatabaseModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

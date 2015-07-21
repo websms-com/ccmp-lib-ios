@@ -2,7 +2,7 @@
 //  CCMPAccountMO.h
 //  
 //
-//  Created by Christoph Lückler on 26/05/15.
+//  Created by Christoph Lückler on 21/07/15.
 //
 //
 
@@ -17,13 +17,10 @@
 @property (nonatomic, retain) NSString * avatarURL;
 @property (nonatomic, retain) NSString * cacheKey;
 @property (nonatomic, retain) NSString * displayName;
-@property (nonatomic, retain) NSNumber * replyable;
 @property (nonatomic, retain) NSDate * lastMessageDate;
 @property (nonatomic, retain) NSDate * refreshTimestamp;
+@property (nonatomic, retain) NSNumber * replyable;
 @property (nonatomic, retain) NSSet *message;
-
-- (BOOL)isAvatarLoaded;
-
 @end
 
 @interface CCMPAccountMO (CoreDataGeneratedAccessors)

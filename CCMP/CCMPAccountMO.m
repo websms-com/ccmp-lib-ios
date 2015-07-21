@@ -2,7 +2,7 @@
 //  CCMPAccountMO.m
 //  
 //
-//  Created by Christoph Lückler on 26/05/15.
+//  Created by Christoph Lückler on 21/07/15.
 //
 //
 
@@ -18,12 +18,7 @@
 @dynamic displayName;
 @dynamic lastMessageDate;
 @dynamic refreshTimestamp;
+@dynamic replyable;
 @dynamic message;
-
-#pragma mark - Public methods
-
-- (BOOL)isAvatarLoaded {
-    return (self.cacheKey == nil ? NO : YES);
-}
 
 @end

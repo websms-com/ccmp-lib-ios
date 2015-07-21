@@ -1,34 +1,36 @@
 //
 //  CCMPMessageMO.m
-//  CCMP
+//  
 //
-//  Created by Christoph Lückler on 26.11.13.
-//  Copyright (c) 2013 Up To Eleven. All rights reserved.
+//  Created by Christoph Lückler on 21/07/15.
+//
 //
 
+#import "CCMPMessageMO.h"
+#import "CCMPAccountMO.h"
+#import "CCMPAttachmentMO.h"
 #import "CCMPMessageMO.h"
 
 
 @implementation CCMPMessageMO
 
+@dynamic additionalPushParameter;
 @dynamic content;
 @dynamic date;
+@dynamic delivered;
+@dynamic deviceMessageId;
+@dynamic expired;
 @dynamic incoming;
 @dynamic messageId;
-@dynamic deviceMessageId;
 @dynamic read;
 @dynamic recipient;
-@dynamic status;
-@dynamic sendChannel;
 @dynamic reference;
-@dynamic additionalPushParameter;
-@dynamic expired;
 @dynamic replyable;
-@dynamic delivered;
-
-@dynamic attachment;
+@dynamic sendChannel;
+@dynamic status;
 @dynamic account;
-@dynamic inReplyTo;
 @dynamic answer;
+@dynamic attachment;
+@dynamic inReplyTo;
 
 @end
