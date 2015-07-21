@@ -36,7 +36,7 @@
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CCMPAccountMO" inverseName="message" inverseEntity="CCMPAccountMO" syncable="YES"/>
         <relationship name="answer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CCMPMessageMO" inverseName="inReplyTo" inverseEntity="CCMPMessageMO" syncable="YES"/>
-        <relationship name="attachment" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CCMPAttachmentMO" inverseName="message" inverseEntity="CCMPAttachmentMO" syncable="YES"/>
+        <relationship name="attachment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CCMPAttachmentMO" inverseName="message" inverseEntity="CCMPAttachmentMO" syncable="YES"/>
         <relationship name="inReplyTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CCMPMessageMO" inverseName="answer" inverseEntity="CCMPMessageMO" syncable="YES"/>
     </entity>
     <elements>
