@@ -106,15 +106,15 @@ const int kRequestTimeout = 15.0;
     
     CLogVerbose(@"PLAIN RESPONSE DATA - %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
 
-    if (statusCode != 200 && statusCode != 201) {
+    if (connectionError) {
+        error = connectionError;
+        [self requestFinishedWithResult:nil andStatusCode:0];
+    } else if (statusCode != 200 && statusCode != 201) {
         error = [NSError errorWithDomain: errorDomain
                                     code: statusCode
                                 userInfo: @{NSLocalizedDescriptionKey: [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]}];
         
         [self requestFinishedWithResult:nil andStatusCode:statusCode];
-    } else if (connectionError) {
-        error = connectionError;
-        [self requestFinishedWithResult:nil andStatusCode:0];
     } else {
         if (method == CCMPOperationMethodPost) {
             if ([[response allHeaderFields] objectForKey:@"Location"]) {
