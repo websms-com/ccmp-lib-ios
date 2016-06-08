@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		A2DB309C6A4B40348D024CF7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CE9E8A392D419192642042 /* libPods.a */; };
+		AD62020C1D076B96003AD8FC /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD62020B1D076B96003AD8FC /* PushKit.framework */; };
 		F604549F182A23930027C174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F604549E182A23930027C174 /* Foundation.framework */; };
 		F60454A4182A23930027C174 /* CCMP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F60454A3182A23930027C174 /* CCMP.h */; };
 		F60454A6182A23930027C174 /* CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F60454A5182A23930027C174 /* CCMP.m */; };
@@ -133,6 +134,7 @@
 /* Begin PBXFileReference section */
 		8267202F80A49ECB54FAE8C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		91CE9E8A392D419192642042 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD62020B1D076B96003AD8FC /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		AD96F22611D6B56EB369DEC8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F604549B182A23930027C174 /* libCCMP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCCMP.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F604549E182A23930027C174 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -227,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD62020C1D076B96003AD8FC /* PushKit.framework in Frameworks */,
 				F604549F182A23930027C174 /* Foundation.framework in Frameworks */,
 				F6C9DA14191A531D001A1778 /* CoreData.framework in Frameworks */,
 				A2DB309C6A4B40348D024CF7 /* libPods.a in Frameworks */,
@@ -278,6 +281,7 @@
 		F604549D182A23930027C174 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD62020B1D076B96003AD8FC /* PushKit.framework */,
 				F69B80D618448C8500C7210B /* CoreData.framework */,
 				F604549E182A23930027C174 /* Foundation.framework */,
 				F60454AC182A23930027C174 /* XCTest.framework */,

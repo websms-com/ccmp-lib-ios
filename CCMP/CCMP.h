@@ -8,6 +8,7 @@
 
 #import "CCMPVariables.h"
 #import "CCMPDatabase.h"
+#import <PushKit/PushKit.h>
 
 #define SharedCCMP [CCMP sharedService]
 #define NewInstanceCCMP [[CCMP alloc] initWithNewInstance];
@@ -50,6 +51,20 @@
 
 #pragma mark
 #pragma mark - APNS & Notification handling
+
+/**
+ * Notifies the delegate when the push credentials have been updated.
+ *
+ * @see didUpdatePushCredentials:
+ */
+- (void)didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type;
+
+/**
+ * Notifies the delegate that a remote push has been received.
+ *
+ * @see didReceiveIncomingPushWithPayload:
+ */
+- (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type;
 
 /**
  * Tells the delegate that the app successfully registered with Apple Push Service (APS).
