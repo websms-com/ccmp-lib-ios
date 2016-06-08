@@ -5,7 +5,7 @@ SMS2App from websms combines the cost advantages of push messaging and the relia
 For more information about SMS2App, visit our [website](https://websms.de/produkte/sms2app)
 
 ## Requirements
-* XCode 4.5 or higher
+* Xcode 4.5 or higher
 * Apple LLVM compiler
 * iOS 5.0 or higher
 * ARC
