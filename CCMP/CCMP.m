@@ -95,6 +95,8 @@ static CCMP *sharedInstance;
                     CLogDebug(@"Scheduling local notification: - %@", notification);
                     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
                 }
+            } else {
+                CLogWarn(@"updateInboxWithCompletion failed with error: - %@", err);
             }
         }];
     } else {
