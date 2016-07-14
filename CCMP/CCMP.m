@@ -90,7 +90,6 @@ static CCMP *sharedInstance;
                     notification.repeatInterval = 0;
                     notification.soundName = [payload.dictionaryPayload valueForKeyPath:@"aps.sound"];
                     notification.alertBody = [payload.dictionaryPayload valueForKeyPath:@"aps.alert"];
-                    notification.applicationIconBadgeNumber = [[payload.dictionaryPayload valueForKeyPath:@"aps.badge"] integerValue];
 
                     CLogDebug(@"Scheduling local notification: - %@", notification);
                     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
