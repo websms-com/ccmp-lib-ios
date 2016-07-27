@@ -103,32 +103,6 @@ static CCMP *sharedInstance;
     }
 }
 
-- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-    CLogDebug(@"didUpdatePushCredentials: - %@", credentials.token);
-
-    NSString *newToken = [[[[credentials.token description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                           stringByReplacingOccurrencesOfString: @">" withString: @""]
-                          stringByReplacingOccurrencesOfString: @" " withString: @""];
-
-    if (![CCMPUserDefaults.pushRegistrationToken isEqualToString:newToken]) {
-        [CCMPUserDefaults setPushRegistrationToken:newToken];
-
-        if ([self isRegistered]) {
-            [self updateDevice: CCMPUserDefaults.deviceToken
-                    withMsisdn: CCMPUserDefaults.msisdn
-                     andPushId: newToken];
-        }
-    }
-}
-
-- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type {
-    CLogDebug(@"didReceiveIncomingPushWithPayload: - %@", payload.dictionaryPayload);
-
-    if ([self isRegistered]) {
-        [self updateInbox];
-    }
-}
-
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     CLogDebug(@"didRegisterForRemoteNotificationsWithDeviceToken: - %@", deviceToken);
     
