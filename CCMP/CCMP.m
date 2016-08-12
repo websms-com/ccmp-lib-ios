@@ -90,41 +90,16 @@ static CCMP *sharedInstance;
                     notification.repeatInterval = 0;
                     notification.soundName = [payload.dictionaryPayload valueForKeyPath:@"aps.sound"];
                     notification.alertBody = [payload.dictionaryPayload valueForKeyPath:@"aps.alert"];
-                    notification.applicationIconBadgeNumber = [[payload.dictionaryPayload valueForKeyPath:@"aps.badge"] integerValue];
 
                     CLogDebug(@"Scheduling local notification: - %@", notification);
                     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
                 }
+            } else {
+                CLogWarn(@"updateInboxWithCompletion failed with error: - %@", err);
             }
         }];
     } else {
         CLogWarn(@"Try to update inbox, but user is not authenticated");
-    }
-}
-
-- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-    CLogDebug(@"didUpdatePushCredentials: - %@", credentials.token);
-
-    NSString *newToken = [[[[credentials.token description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                           stringByReplacingOccurrencesOfString: @">" withString: @""]
-                          stringByReplacingOccurrencesOfString: @" " withString: @""];
-
-    if (![CCMPUserDefaults.pushRegistrationToken isEqualToString:newToken]) {
-        [CCMPUserDefaults setPushRegistrationToken:newToken];
-
-        if ([self isRegistered]) {
-            [self updateDevice: CCMPUserDefaults.deviceToken
-                    withMsisdn: CCMPUserDefaults.msisdn
-                     andPushId: newToken];
-        }
-    }
-}
-
-- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type {
-    CLogDebug(@"didReceiveIncomingPushWithPayload: - %@", payload.dictionaryPayload);
-
-    if ([self isRegistered]) {
-        [self updateInbox];
     }
 }
 

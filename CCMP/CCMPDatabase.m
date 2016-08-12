@@ -163,6 +163,8 @@ static CCMPDatabase *sharedInstance;
                                                                     object: message];
             });
         }
+
+        [self updateBadgeCounter];
     } else {
         [self updateMessage:message content:text read:read status:status sendChannel:sendChannel];
     }

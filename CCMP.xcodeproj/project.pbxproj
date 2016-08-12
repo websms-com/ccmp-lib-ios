@@ -21,8 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		A2DB309C6A4B40348D024CF7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CE9E8A392D419192642042 /* libPods.a */; };
+		678639E1771877F7A596E923 /* libPods-CCMP-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB01003FD6AD8974310E04D /* libPods-CCMP-Tests.a */; };
+		7B41E6EB647957ABF6462722 /* libPods-CCMP-CCMP-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5348673CF5DD46C732514ED7 /* libPods-CCMP-CCMP-Tests.a */; };
 		AD62020C1D076B96003AD8FC /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD62020B1D076B96003AD8FC /* PushKit.framework */; };
+		DFF07671911D80EA769291EF /* libPods-CCMP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2628EF5D907188C02258B5D /* libPods-CCMP.a */; };
 		F604549F182A23930027C174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F604549E182A23930027C174 /* Foundation.framework */; };
 		F60454A4182A23930027C174 /* CCMP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F60454A3182A23930027C174 /* CCMP.h */; };
 		F60454A6182A23930027C174 /* CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F60454A5182A23930027C174 /* CCMP.m */; };
@@ -132,10 +134,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2AB01003FD6AD8974310E04D /* libPods-CCMP-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCMP-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		441BC0E22671D5460799200C /* Pods-CCMP-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMP-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCMP-Tests/Pods-CCMP-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5348673CF5DD46C732514ED7 /* libPods-CCMP-CCMP-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCMP-CCMP-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77DE3457C2361373AB56078E /* Pods-CCMP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCMP/Pods-CCMP.debug.xcconfig"; sourceTree = "<group>"; };
+		79C91411670C59210989AFC4 /* Pods-CCMP-CCMP-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMP-CCMP-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCMP-CCMP-Tests/Pods-CCMP-CCMP-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8267202F80A49ECB54FAE8C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9190A917BF98278798434E29 /* Pods-CCMP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMP.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCMP/Pods-CCMP.release.xcconfig"; sourceTree = "<group>"; };
 		91CE9E8A392D419192642042 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD62020B1D076B96003AD8FC /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		AD96F22611D6B56EB369DEC8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D04010CCE79D39414789A46C /* Pods-CCMP-CCMP-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMP-CCMP-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCMP-CCMP-Tests/Pods-CCMP-CCMP-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		EE402AC0E249A4D4FC0574EC /* Pods-CCMP-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCMP-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCMP-Tests/Pods-CCMP-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F2628EF5D907188C02258B5D /* libPods-CCMP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCMP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F604549B182A23930027C174 /* libCCMP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCCMP.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F604549E182A23930027C174 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F60454A2182A23930027C174 /* CCMP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCMP-Prefix.pch"; sourceTree = "<group>"; };
@@ -232,7 +243,7 @@
 				AD62020C1D076B96003AD8FC /* PushKit.framework in Frameworks */,
 				F604549F182A23930027C174 /* Foundation.framework in Frameworks */,
 				F6C9DA14191A531D001A1778 /* CoreData.framework in Frameworks */,
-				A2DB309C6A4B40348D024CF7 /* libPods.a in Frameworks */,
+				DFF07671911D80EA769291EF /* libPods-CCMP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +254,8 @@
 				F60454AE182A23930027C174 /* Foundation.framework in Frameworks */,
 				F60454AD182A23930027C174 /* XCTest.framework in Frameworks */,
 				F64B335A191A5948002E34A3 /* libPods.a in Frameworks */,
+				678639E1771877F7A596E923 /* libPods-CCMP-Tests.a in Frameworks */,
+				7B41E6EB647957ABF6462722 /* libPods-CCMP-CCMP-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +267,12 @@
 			children = (
 				8267202F80A49ECB54FAE8C5 /* Pods.debug.xcconfig */,
 				AD96F22611D6B56EB369DEC8 /* Pods.release.xcconfig */,
+				77DE3457C2361373AB56078E /* Pods-CCMP.debug.xcconfig */,
+				9190A917BF98278798434E29 /* Pods-CCMP.release.xcconfig */,
+				EE402AC0E249A4D4FC0574EC /* Pods-CCMP-Tests.debug.xcconfig */,
+				441BC0E22671D5460799200C /* Pods-CCMP-Tests.release.xcconfig */,
+				D04010CCE79D39414789A46C /* Pods-CCMP-CCMP-Tests.debug.xcconfig */,
+				79C91411670C59210989AFC4 /* Pods-CCMP-CCMP-Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -286,6 +305,9 @@
 				F604549E182A23930027C174 /* Foundation.framework */,
 				F60454AC182A23930027C174 /* XCTest.framework */,
 				91CE9E8A392D419192642042 /* libPods.a */,
+				F2628EF5D907188C02258B5D /* libPods-CCMP.a */,
+				2AB01003FD6AD8974310E04D /* libPods-CCMP-Tests.a */,
+				5348673CF5DD46C732514ED7 /* libPods-CCMP-CCMP-Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -476,11 +498,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F60454BE182A23930027C174 /* Build configuration list for PBXNativeTarget "CCMP" */;
 			buildPhases = (
-				1A7CAB85A0EE479F99B49D81 /* Check Pods Manifest.lock */,
+				1A7CAB85A0EE479F99B49D81 /* [CP] Check Pods Manifest.lock */,
 				F6045497182A23930027C174 /* Sources */,
 				F6045498182A23930027C174 /* Frameworks */,
 				F6045499182A23930027C174 /* CopyFiles */,
-				99D4B4312EC745B09032882F /* Copy Pods Resources */,
+				99D4B4312EC745B09032882F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -495,11 +517,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F60454C1182A23930027C174 /* Build configuration list for PBXNativeTarget "CCMP-Tests" */;
 			buildPhases = (
-				E42B68538280482497D5ECB4 /* Check Pods Manifest.lock */,
+				E42B68538280482497D5ECB4 /* [CP] Check Pods Manifest.lock */,
 				F60454A7182A23930027C174 /* Sources */,
 				F60454A8182A23930027C174 /* Frameworks */,
 				F60454A9182A23930027C174 /* Resources */,
-				FA3EF1EF68774ABA9FEC74BE /* Copy Pods Resources */,
+				FA3EF1EF68774ABA9FEC74BE /* [CP] Copy Pods Resources */,
+				257E22188109D99492EF436A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -517,7 +540,7 @@
 		F6045493182A23930027C174 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Up To Eleven";
 			};
 			buildConfigurationList = F6045496182A23930027C174 /* Build configuration list for PBXProject "CCMP" */;
@@ -551,14 +574,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A7CAB85A0EE479F99B49D81 /* Check Pods Manifest.lock */ = {
+		1A7CAB85A0EE479F99B49D81 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,29 +589,44 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		99D4B4312EC745B09032882F /* Copy Pods Resources */ = {
+		257E22188109D99492EF436A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCMP-Tests/Pods-CCMP-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E42B68538280482497D5ECB4 /* Check Pods Manifest.lock */ = {
+		99D4B4312EC745B09032882F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCMP/Pods-CCMP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E42B68538280482497D5ECB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,19 +647,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Start constants\ncompany=\"Up To Eleven\";\ncompanyID=\"net.ut11\";\ncompanyURL=\"http://www.ut11.net\";\ntarget=\"iphoneos\";\noutputPath=\"~/Sites/xcode_workspace/help/${PROJECT_NAME}\";\n# End constants\n\n/usr/local/bin/appledoc \\\n--exit-threshold 2 \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/docs/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/docs/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/docs\" \\\n--docset-platform-family \"${target}\" \\\n--include \"${PROJECT_DIR}/Pods/Headers/LocalLibrary-lib\" \\\n--index-desc \"${PROJECT_DIR}/Documentation/appledoc/Top_level.markdown\" \\\n--keep-intermediate-files \\\n--logformat xcode \\\n--merge-categories \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--no-warn-undocumented-object \\\n--no-warn-undocumented-member \\\n--no-warn-empty-description \\\n--output \"${outputPath}\" \\\n--install-docset \\\n--print-information-block-titles \\\n--use-code-order \\\n--verbose 4 \\\n--ignore \"*.m\" \\\n--ignore \"*.pch\" \\\n--ignore \"*.config\" \\\n--ignore \"*.xcconfig\" \\\n--ignore \"*.docset\" \\\n--ignore \"*.xcodeproj\" \\\n--ignore \"*.xcworkspace\" \\\n--ignore \"*.lock\" \\\n--ignore \"*.plist\" \\\n--ignore \"*.strings\" \\\n--ignore \"*.txt\" \\\n--ignore \"*.app\" \\\n--ignore \"*.podspec\" \\\n--ignore \"*.jnlp\" \\\n--ignore \"*.jar\" \\\n--ignore \"*.png\" \\\n--ignore \"*.jpg\" \\\n--ignore \"*.html\" \\\n--ignore \"*.xml\" \\\n--ignore \"*.sh\" \\\n--ignore \"*.gitignore\" \\\n--ignore \"Pods\" \\\n\"${PROJECT_DIR}\"";
 		};
-		FA3EF1EF68774ABA9FEC74BE /* Copy Pods Resources */ = {
+		FA3EF1EF68774ABA9FEC74BE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCMP-Tests/Pods-CCMP-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -748,6 +786,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -803,7 +842,7 @@
 		};
 		F60454BF182A23930027C174 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8267202F80A49ECB54FAE8C5 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 77DE3457C2361373AB56078E /* Pods-CCMP.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
@@ -818,7 +857,7 @@
 		};
 		F60454C0182A23930027C174 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD96F22611D6B56EB369DEC8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 9190A917BF98278798434E29 /* Pods-CCMP.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
@@ -833,7 +872,7 @@
 		};
 		F60454C2182A23930027C174 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8267202F80A49ECB54FAE8C5 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = EE402AC0E249A4D4FC0574EC /* Pods-CCMP-Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -854,6 +893,7 @@
 					"-framework",
 					XCTest,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mysms.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -861,7 +901,7 @@
 		};
 		F60454C3182A23930027C174 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD96F22611D6B56EB369DEC8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 441BC0E22671D5460799200C /* Pods-CCMP-Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -877,6 +917,7 @@
 					"-framework",
 					XCTest,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mysms.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
