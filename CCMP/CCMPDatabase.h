@@ -68,6 +68,20 @@
 - (NSArray *)getAllQueuedMessages;
 
 /**
+ * Return all messages that are outgoing
+ *
+ * @return NSArray with CCMPMessageMO objects
+ */
+- (NSArray *)getAllOutgoingMessages;
+
+/**
+ * Return all messages for a given account
+ *
+ * @return NSArray with CCMPMessageMO objects
+ */
+- (NSArray *)getAllMessagesForAccount:(CCMPAccountMO *)account;
+
+/**
  * Add new message to the local database or updates local message, when it's already in the local database
  *
  * @param messageId The messageId from the ccmp api
@@ -126,6 +140,14 @@
 - (void)deleteMessage:(CCMPMessageMO *)message andReferences:(BOOL)references;
 
 /**
+ * Removes all messages that are referenced to the given account
+ *
+ * @param account The message to be deleted
+ * @praam deleteAccount Should also delete the referenced account
+ */
+- (void)deleteAllMessagesForAccount:(CCMPAccountMO *)account deleteAccount:(BOOL)del;
+
+/**
  * You use a fetched results controller to efficiently manage the messages returned from a database fetch request to provide data for a UITableView object.
  * 
  * @param outgoing Set to TRUE if the NSFetchedResultsController should include outgoing messages
@@ -133,6 +155,15 @@
  * @return The NSFetchedResultsController for handling message objects in UITableView
  */
 - (NSFetchedResultsController *)messageResultControllerWithOutgoing:(BOOL)outgoing;
+    
+- (NSFetchedResultsController *)messagesResultControllerForAccount:(CCMPAccountMO *)account;
+
+/**
+ * Counts all unread and incoming messages in the local database.
+ *
+ * @return The amount of unread messages
+ */
+- (NSUInteger)unreadMessagesCount;
 
 /**
  * Get account information for an given accountId
