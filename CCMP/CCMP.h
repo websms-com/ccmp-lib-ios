@@ -67,6 +67,13 @@
 - (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type;
 
 /**
+ * Notifies the delegate that a remote push has been received.
+ *
+ * @see didReceiveIncomingPushWithPayload:
+ */
+- (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type completionHandler:(void (^)())completionHandler;
+
+/**
  * Tells the delegate that the app successfully registered with Apple Push Service (APS).
  *
  * @see didRegisterForRemoteNotificationsWithDeviceToken:

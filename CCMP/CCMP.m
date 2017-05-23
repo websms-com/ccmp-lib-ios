@@ -80,24 +80,30 @@ static CCMP *sharedInstance;
 - (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type {
     CLogDebug(@"didReceiveIncomingPushWithPayload: - %@", payload.dictionaryPayload);
 
-    if ([self isRegistered]) {
-        [self updateInboxWithCompletion:^(NSError *err){
-            if (!err) {
-                UILocalNotification *notification = [[UILocalNotification alloc] init];
-                if (notification) {
-                    notification.fireDate = [NSDate date];
-                    notification.timeZone = [NSTimeZone defaultTimeZone];
-                    notification.repeatInterval = 0;
-                    notification.soundName = [payload.dictionaryPayload valueForKeyPath:@"aps.sound"];
-                    notification.alertBody = [payload.dictionaryPayload valueForKeyPath:@"aps.alert"];
+    [self didReceiveIncomingPushWithPayload:payload forType:type completionHandler:^(NSError *err){
+        if (!err) {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            if (notification) {
+                notification.fireDate = [NSDate date];
+                notification.timeZone = [NSTimeZone defaultTimeZone];
+                notification.repeatInterval = 0;
+                notification.soundName = [payload.dictionaryPayload valueForKeyPath:@"aps.sound"];
+                notification.alertBody = [payload.dictionaryPayload valueForKeyPath:@"aps.alert"];
 
-                    CLogDebug(@"Scheduling local notification: - %@", notification);
-                    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                }
-            } else {
-                CLogWarn(@"updateInboxWithCompletion failed with error: - %@", err);
+                CLogDebug(@"Scheduling local notification: - %@", notification);
+                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
             }
-        }];
+        } else {
+            CLogWarn(@"updateInboxWithCompletion failed with error: - %@", err);
+        }
+    }];
+}
+
+- (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type completionHandler:(void (^)(NSError *err))completionHandler {
+    CLogDebug(@"didReceiveIncomingPushWithPayload: - %@", payload.dictionaryPayload);
+
+    if ([self isRegistered]) {
+        [self updateInboxWithCompletion:completionHandler];
     } else {
         CLogWarn(@"Try to update inbox, but user is not authenticated");
     }
@@ -110,7 +116,7 @@ static CCMP *sharedInstance;
     NSString *pushId = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
                                                     stringByReplacingOccurrencesOfString: @">" withString: @""]
                                                     stringByReplacingOccurrencesOfString: @" " withString: @""];
-    
+
     if (![self isRegistered]) {
         cachedPushIdForInitialLogin = pushId;
         CLogWarn(@"Can't update pushId because user is not registered");
