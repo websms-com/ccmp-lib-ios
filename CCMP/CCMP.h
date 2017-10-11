@@ -71,7 +71,7 @@
  *
  * @see didReceiveIncomingPushWithPayload:
  */
-- (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type completionHandler:(void (^)())completionHandler;
+- (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type completionHandler:(void (^)(NSError *err))completionHandler;
 
 /**
  * Tells the delegate that the app successfully registered with Apple Push Service (APS).
@@ -115,7 +115,7 @@
  *
  * @see handleActionWithIdentifier:forRemoteNotification:completionHandler:
  */
-- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler NS_AVAILABLE_IOS(8_0);
+- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)(void))completionHandler NS_AVAILABLE_IOS(8_0);
 
 
 #pragma mark

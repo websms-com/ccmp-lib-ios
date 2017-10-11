@@ -234,7 +234,7 @@ static CCMP *sharedInstance;
 }
 
 - (void)logout {
-    CLogInfo();
+    CLogInfo(@"");
     
     CCMPAPIDeviceUpdateOperation *op = [api updateDevice: CCMPUserDefaults.deviceToken
                                               withMSISDN: CCMPUserDefaults.msisdn
@@ -393,7 +393,7 @@ static CCMP *sharedInstance;
         [NSException throwException:@"Device is not registrated"];
     }
     
-    CLogDebug();
+    CLogDebug(@"");
     
     CCMPAPIInboxFetchOperation *op = [api getMessagesFrom: CCMPUserDefaults.deviceToken
                                             fromMessageId: nil
@@ -649,7 +649,7 @@ static CCMP *sharedInstance;
     
     // Check message result
     if (result == MessageComposeResultFailed) {
-        CLogError("Failed to send SMS ... MessageComposeResultFailed");
+        CLogError(@"Failed to send SMS ... MessageComposeResultFailed");
         
         [database updateMessage: message
                         content: nil
@@ -657,7 +657,7 @@ static CCMP *sharedInstance;
                          status: CCMPMessageStatusFailed
                     sendChannel: CCMPMessageSendChannelNone];
     } else if (result == MessageComposeResultCancelled) {
-        CLogError("Failed to send SMS ... MessageComposeResultCancelled");
+        CLogError(@"Failed to send SMS ... MessageComposeResultCancelled");
         
         [database deleteMessage: message
                   andReferences: NO];
