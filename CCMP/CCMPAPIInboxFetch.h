@@ -27,6 +27,14 @@
 @property (nonatomic, retain) NSString *additionalPushParameter;
 @end
 
+@interface CCMPAPIInboxFetchMessageResponse : CCMPAPIAbstractResponse
+@property (nonatomic, retain) CCMPAPIMessage *message;
+@end
+
 @interface CCMPAPIInboxFetchOperation : CCMPAPIAbstractOperation
 @property (nonatomic, retain) CCMPAPIInboxFetchResponse *response;
+@end
+
+@interface CCMPAPIInboxFetchMessageOperation : CCMPAPIAbstractOperation
+@property (nonatomic, retain) CCMPAPIInboxFetchMessageResponse *response;
 @end
