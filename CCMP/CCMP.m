@@ -423,7 +423,7 @@ static CCMP *sharedInstance;
             [self processMessage:msg];
         }
 
-        [database commit:^(BOOL success){
+        [database commit:^(BOOL success, NSError *error){
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationInboxUpdated
                                                                     object: nil];
@@ -451,7 +451,7 @@ static CCMP *sharedInstance;
 
     [op setCompletionBlock:^{
         CLogDebug(@"Completion of updateMessageWithCompletion with statusCode=%d and error=%@", bop.response.statusCode.intValue, bop.error);
-        if (bop.response.statusCode.intValue != HTTPStatusCodeOK) {
+        if (bop.response.statusCode.intValue != HTTPStatusCodeOK || bop.error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationInboxUpdated
                                                                     object: bop.error];
@@ -465,13 +465,13 @@ static CCMP *sharedInstance;
 
         [self processMessage:bop.response.message];
 
-        [database commit:^(BOOL success){
+        [database commit:^(BOOL success, NSError *error){
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationInboxUpdated
                                                                     object: nil];
 
                 if (block) {
-                    block(nil);
+                    block(error);
                 }
             });
         }];
@@ -562,7 +562,7 @@ static CCMP *sharedInstance;
         message.account = replyMessage.account;
     }
     
-    [database commit:^(BOOL success) {
+    [database commit:^(BOOL success, NSError *error) {
         // Check send Channel
         if ([self isRegistered]) {
             [self sendMessage:message];
@@ -653,7 +653,7 @@ static CCMP *sharedInstance;
                          status: CCMPMessageStatusSent
                     sendChannel: CCMPMessageSendChannelPush];
 
-        [database commit:^(BOOL success){
+        [database commit:^(BOOL success, NSError *error){
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationMessageSent
                                                                     object: msg];
@@ -680,7 +680,7 @@ static CCMP *sharedInstance;
                          status: CCMPMessageStatusFailed
                     sendChannel: CCMPMessageSendChannelNone];
 
-        [database commit:^(BOOL success){
+        [database commit:^(BOOL success, NSError *error){
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationMessageSent
                                                                     object: msg];
@@ -724,7 +724,7 @@ static CCMP *sharedInstance;
     }
 
     // Commit to database
-    [database commit:^(BOOL success){
+    [database commit:^(BOOL success, NSError *error){
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationMessageSent
                                                                 object: message];

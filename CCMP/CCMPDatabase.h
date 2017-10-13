@@ -33,7 +33,7 @@
  *
  * @param completion This block will be executed when commit task is done
  */
-- (void)commit:(void(^)(BOOL success))completion;
+- (void)commit:(void(^)(BOOL success, NSError *error))completion;
 
 /**
  * Cleanup whole database and commit automatically

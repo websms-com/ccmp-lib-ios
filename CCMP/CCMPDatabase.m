@@ -53,10 +53,10 @@ static CCMPDatabase *sharedInstance;
     [self commit:nil];
 }
 
-- (void)commit:(void(^)(BOOL success))completion {
+- (void)commit:(void(^)(BOOL success, NSError *error))completion {
     if (completion) {
         [[self localContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error){
-            completion(success);
+            completion(success, error);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationDatabaseCommited
