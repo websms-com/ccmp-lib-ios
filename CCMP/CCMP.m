@@ -214,7 +214,7 @@ static CCMP *sharedInstance;
     }
 }
 
-- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler {
+- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)(void))completionHandler {
     CLogDebug(@"handleActionWithIdentifier:forRemoteNotification:fetchCompletionHandler: - %@ | %@", identifier, userInfo);
 }
 
@@ -231,11 +231,7 @@ static CCMP *sharedInstance;
 }
 
 - (BOOL)isPushEnabled {
-    if ([UIApplication sharedApplication].enabledRemoteNotificationTypes != UIRemoteNotificationTypeNone) {
-        return YES;
-    } else {
-        return NO;
-    }
+    return [UIApplication sharedApplication].isRegisteredForRemoteNotifications;
 }
 
 - (void)logout {
@@ -443,7 +439,7 @@ static CCMP *sharedInstance;
         [NSException throwException:@"Device is not registrated"];
     }
 
-    CLogDebug(@"Trying to fetch message with id %d", messageId);
+    CLogDebug(@"Trying to fetch message with id %@", messageId);
 
     CCMPAPIInboxFetchMessageOperation *op = [api getMessage: CCMPUserDefaults.deviceToken
                                                   messageId: messageId];

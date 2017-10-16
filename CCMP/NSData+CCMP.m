@@ -11,11 +11,7 @@
 @implementation NSData (CCMP)
 
 - (NSString *)customBase64EncodedString {
-    if ([self respondsToSelector:@selector(base64EncodedStringWithOptions:)]) {
-        return [self base64EncodedStringWithOptions:0];
-    } else {
-        return [self base64Encoding];
-    }
+    return [self base64EncodedStringWithOptions:0];
 }
 
 @end
