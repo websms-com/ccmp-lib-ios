@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Up To Eleven. All rights reserved.
 //
 
-#import "CCMPAPIInboxFetch.h"
+#import "CCMPAPIInbox.h"
 
 @implementation CCMPAPIInboxFetchResponse
 @synthesize messages;

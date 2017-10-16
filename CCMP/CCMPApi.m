@@ -194,7 +194,7 @@ const int kMaxQueueObjects = 10;
     return op;
 }
 
-- (CCMPAPIInboxFetchMessageOperation *)getMessage:(NSString *)deviceToken messageId:(NSNumber *)messageId {
+- (CCMPAPIInboxFetchMessageOperation *)fetchMessage:(NSString *)deviceToken messageId:(NSNumber *)messageId {
 
     NSString *apiKey = [self apiKeyForOperation:[CCMPAPIInboxFetchOperation class]];
     NSString *apiBaseUrl = [self apiBaseUrlForOperation:[CCMPAPIInboxFetchOperation class]];

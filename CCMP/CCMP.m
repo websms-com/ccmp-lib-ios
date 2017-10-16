@@ -441,7 +441,7 @@ static CCMP *sharedInstance;
 
     CLogDebug(@"Trying to fetch message with id %@", messageId);
 
-    CCMPAPIInboxFetchMessageOperation *op = [api getMessage: CCMPUserDefaults.deviceToken
+    CCMPAPIInboxFetchMessageOperation *op = [api fetchMessage: CCMPUserDefaults.deviceToken
                                                   messageId: messageId];
     __block CCMPAPIInboxFetchMessageOperation *bop = op;
 
