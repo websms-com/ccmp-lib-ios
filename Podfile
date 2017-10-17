@@ -13,5 +13,5 @@ target 'CCMP' do
 end
 
 target 'CCMP-Tests' do
-  inherit! :search_paths
+
 end

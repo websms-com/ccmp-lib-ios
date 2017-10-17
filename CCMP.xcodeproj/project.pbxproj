@@ -22,7 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		678639E1771877F7A596E923 /* libPods-CCMP-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB01003FD6AD8974310E04D /* libPods-CCMP-Tests.a */; };
-		7B41E6EB647957ABF6462722 /* libPods-CCMP-CCMP-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5348673CF5DD46C732514ED7 /* libPods-CCMP-CCMP-Tests.a */; };
 		AD62020C1D076B96003AD8FC /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD62020B1D076B96003AD8FC /* PushKit.framework */; };
 		DFF07671911D80EA769291EF /* libPods-CCMP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2628EF5D907188C02258B5D /* libPods-CCMP.a */; };
 		F604549F182A23930027C174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F604549E182A23930027C174 /* Foundation.framework */; };
@@ -36,7 +35,6 @@
 		F610021C1864454300A7D332 /* NSData+CCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F610021B1864454300A7D332 /* NSData+CCMP.m */; };
 		F612E74718D0A155004FE0C5 /* CCMPAttachmentMO.m in Sources */ = {isa = PBXBuildFile; fileRef = F612E74618D0A155004FE0C5 /* CCMPAttachmentMO.m */; };
 		F612E74C18D0A220004FE0C5 /* CCMPAccountMO.m in Sources */ = {isa = PBXBuildFile; fileRef = F612E74B18D0A220004FE0C5 /* CCMPAccountMO.m */; };
-		F64B335A191A5948002E34A3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CE9E8A392D419192642042 /* libPods.a */; };
 		F64B335D191A5A3C002E34A3 /* CCMPAPIAbstractOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A46C1182A814900229A48 /* CCMPAPIAbstractOperation.m */; };
 		F64B335E191A5B20002E34A3 /* CCMPAPIAbstractResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E788182BBB7D00A371B6 /* CCMPAPIAbstractResponse.m */; };
 		F64B335F191A5B20002E34A3 /* CCMPAPIDeviceGet.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A46C4182A8CFE00229A48 /* CCMPAPIDeviceGet.m */; };
@@ -253,9 +251,7 @@
 			files = (
 				F60454AE182A23930027C174 /* Foundation.framework in Frameworks */,
 				F60454AD182A23930027C174 /* XCTest.framework in Frameworks */,
-				F64B335A191A5948002E34A3 /* libPods.a in Frameworks */,
 				678639E1771877F7A596E923 /* libPods-CCMP-Tests.a in Frameworks */,
-				7B41E6EB647957ABF6462722 /* libPods-CCMP-CCMP-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,7 +582,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		257E22188109D99492EF436A /* [CP] Embed Pods Frameworks */ = {
@@ -631,7 +627,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F6227C581836384F001F32E8 /* ShellScript */ = {
@@ -897,11 +893,7 @@
 			baseConfigurationReference = EE402AC0E249A4D4FC0574EC /* Pods-CCMP-Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CCMP/CCMP-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -926,11 +918,7 @@
 			baseConfigurationReference = 441BC0E22671D5460799200C /* Pods-CCMP-Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CCMP/CCMP-Prefix.pch";
 				INFOPLIST_FILE = "CCMPTests/CCMPTests-Info.plist";
