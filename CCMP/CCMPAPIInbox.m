@@ -16,6 +16,10 @@
 @synthesize message;
 @end
 
+@implementation CCMPAPIInboxGetMessageResponse
+@synthesize message;
+@end
+
 @implementation CCMPAPIMessage
 @synthesize messageId, content, sender, createionDate;
 @synthesize expired, attachmentId, replyable, delivered, accountId, accountRefreshTimestamp, additionalPushParameter;
@@ -65,6 +69,33 @@
     [super requestFinishedWithResult:jsonResult andStatusCode:statusCode];
 
     response = [[CCMPAPIInboxFetchMessageResponse alloc] initWithDictionary:jsonResult];
+    response.statusCode = [NSNumber numberWithInteger:statusCode];
+
+    CCMPAPIMessage *message = [[CCMPAPIMessage alloc] init];
+    message.messageId = [jsonResult objectForKey:@"id"];
+    message.content = [jsonResult objectForKey:@"content"];
+    message.sender = [jsonResult objectForKey:@"sender"];
+    message.createionDate = [CCMPUtils convertFromApiDate:[jsonResult objectForKey:@"createdOn"]];
+    message.expired = [[jsonResult objectForKey:@"expired"] boolValue];
+    message.attachmentId = [jsonResult objectForKey:@"attachmentId"];
+    message.replyable = [[jsonResult objectForKey:@"replyable"] boolValue];
+    message.delivered = [[jsonResult objectForKey:@"delivered"] boolValue];
+    message.accountRefreshTimestamp = [CCMPUtils convertFromApiDate:[jsonResult objectForKey:@"accountTimestamp"]];
+    message.accountId = [jsonResult objectForKey:@"accountId"];
+    message.additionalPushParameter = [jsonResult objectForKey:@"additionalPushParameter"];
+
+    response.message = message;
+}
+
+@end
+
+@implementation CCMPAPIInboxGetMessageOperation
+@synthesize response;
+
+- (void)requestFinishedWithResult:(NSDictionary *)jsonResult andStatusCode:(NSInteger)statusCode {
+    [super requestFinishedWithResult:jsonResult andStatusCode:statusCode];
+
+    response = [[CCMPAPIInboxGetMessageResponse alloc] initWithDictionary:jsonResult];
     response.statusCode = [NSNumber numberWithInteger:statusCode];
 
     CCMPAPIMessage *message = [[CCMPAPIMessage alloc] init];

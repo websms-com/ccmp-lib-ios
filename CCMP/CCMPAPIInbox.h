@@ -1,5 +1,5 @@
 //
-//  CCMPAPIInboxFetch.h
+//  CCMPAPIInbox.h
 //  CCMP
 //
 //  Created by Christoph Lückler on 25.11.13.
@@ -31,10 +31,18 @@
 @property (nonatomic, retain) CCMPAPIMessage *message;
 @end
 
+@interface CCMPAPIInboxGetMessageResponse : CCMPAPIAbstractResponse
+@property (nonatomic, retain) CCMPAPIMessage *message;
+@end
+
 @interface CCMPAPIInboxFetchOperation : CCMPAPIAbstractOperation
 @property (nonatomic, retain) CCMPAPIInboxFetchResponse *response;
 @end
 
 @interface CCMPAPIInboxFetchMessageOperation : CCMPAPIAbstractOperation
 @property (nonatomic, retain) CCMPAPIInboxFetchMessageResponse *response;
+@end
+
+@interface CCMPAPIInboxGetMessageOperation : CCMPAPIAbstractOperation
+@property (nonatomic, retain) CCMPAPIInboxGetMessageResponse *response;
 @end

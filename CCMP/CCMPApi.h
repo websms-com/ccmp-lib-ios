@@ -40,6 +40,8 @@
 
 - (CCMPAPIInboxFetchMessageOperation *)fetchMessage:(NSString *)deviceToken messageId:(NSNumber *)messageId;
 
+- (CCMPAPIInboxGetMessageOperation *)getMessage:(NSString *)deviceToken messageId:(NSNumber *)messageId;
+
 - (CCMPAPIOutboxOperation *)sendMessage:(NSString *)content andAttachment:(NSNumber *)attachmentId toAddress:(NSString *)address inReplyTo:(NSNumber *)replyMessageId withDeviceToken:(NSString *)deviceToken;
 
 - (CCMPAPIConfigurationOperation *)getConfiguration;

@@ -210,6 +210,21 @@ const int kMaxQueueObjects = 10;
     return op;
 }
 
+- (CCMPAPIInboxGetMessageOperation *)getMessage:(NSString *)deviceToken messageId:(NSNumber *)messageId {
+
+    NSString *apiKey = [self apiKeyForOperation:[CCMPAPIInboxFetchOperation class]];
+    NSString *apiBaseUrl = [self apiBaseUrlForOperation:[CCMPAPIInboxFetchOperation class]];
+    NSString *methodPath = [NSString stringWithFormat:@"device/%@/inbox/%@", deviceToken, messageId];
+
+    CCMPAPIInboxGetMessageOperation *op = [[CCMPAPIInboxGetMessageOperation alloc] initWithBaseUrl: apiBaseUrl
+                                                                                                  path: methodPath
+                                                                                                method: CCMPOperationMethodGet
+                                                                                           jsonObject : nil
+                                                                                                apiKey: apiKey];
+    [op.request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+
+    return op;
+}
 - (CCMPAPIOutboxOperation *)sendMessage:(NSString *)content andAttachment:(NSNumber *)attachmentId toAddress:(NSString *)address inReplyTo:(NSNumber *)replyMessageId withDeviceToken:(NSString *)deviceToken {
 
     NSString *apiKey = [self apiKeyForOperation:[CCMPAPIOutboxOperation class]];
