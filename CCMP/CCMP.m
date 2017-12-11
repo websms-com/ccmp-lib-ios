@@ -441,9 +441,9 @@ static CCMP *sharedInstance;
 
     CLogDebug(@"Trying to fetch message with id %@", messageId);
 
-    CCMPAPIInboxFetchMessageOperation *op = [api fetchMessage: CCMPUserDefaults.deviceToken
+    CCMPAPIInboxGetMessageOperation *op = [api getMessage: CCMPUserDefaults.deviceToken
                                                   messageId: messageId];
-    __block CCMPAPIInboxFetchMessageOperation *bop = op;
+    __block CCMPAPIInboxGetMessageOperation *bop = op;
 
     [op setCompletionBlock:^{
         CLogDebug(@"Completion of updateMessageWithCompletion with statusCode=%d and error=%@", bop.response.statusCode.intValue, bop.error);
@@ -462,10 +462,15 @@ static CCMP *sharedInstance;
         [self processMessage:bop.response.message];
 
         [database commit:^(BOOL success, NSError *error){
+
+            if (success) {
+                CCMPAPIInboxFetchMessageOperation *fetchOp = [api fetchMessage:CCMPUserDefaults.deviceToken messageId:messageId];
+                [fetchOp main];
+            }
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationInboxUpdated
                                                                     object: nil];
-
                 if (block) {
                     block(error);
                 }
