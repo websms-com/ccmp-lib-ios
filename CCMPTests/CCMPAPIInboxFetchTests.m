@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "CCMPAPIInboxFetch.h"
+#import "CCMPAPIInbox.h"
 #import "CCMPTestConfig.h"
 
 @interface CCMPAPIInboxFetchTests : XCTestCase {

@@ -10,7 +10,7 @@
 #import "CCMPAPIDeviceRegister.h"
 #import "CCMPAPIDeviceUpdate.h"
 #import "CCMPAPIDeviceVerification.h"
-#import "CCMPAPIInboxFetch.h"
+#import "CCMPAPIInbox.h"
 #import "CCMPAPIOutbox.h"
 #import "CCMPAPIConfiguration.h"
 #import "CCMPAPIAttachmentGet.h"
@@ -37,6 +37,10 @@
 - (CCMPAPIDeviceUpdateOperation *)updateDevice:(NSString *)deviceToken withMSISDN:(NSNumber *)msisdn andPushId:(NSString *)pushId;
 
 - (CCMPAPIInboxFetchOperation *)getMessagesFrom:(NSString *)deviceToken fromMessageId:(NSNumber *)messageId andLimit:(NSNumber *)limit;
+
+- (CCMPAPIInboxFetchMessageOperation *)fetchMessage:(NSString *)deviceToken messageId:(NSNumber *)messageId;
+
+- (CCMPAPIInboxGetMessageOperation *)getMessage:(NSString *)deviceToken messageId:(NSNumber *)messageId;
 
 - (CCMPAPIOutboxOperation *)sendMessage:(NSString *)content andAttachment:(NSNumber *)attachmentId toAddress:(NSString *)address inReplyTo:(NSNumber *)replyMessageId withDeviceToken:(NSString *)deviceToken;
 
