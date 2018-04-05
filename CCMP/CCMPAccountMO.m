@@ -1,12 +1,14 @@
 //
 //  CCMPAccountMO.m
-//  CCMP
+//  
 //
-//  Created by Christoph Lückler on 12.03.14.
-//  Copyright (c) 2014 Up To Eleven. All rights reserved.
+//  Created by Christoph Lückler on 21/07/15.
+//
 //
 
 #import "CCMPAccountMO.h"
+#import "CCMPMessageMO.h"
+
 
 @implementation CCMPAccountMO
 
@@ -14,16 +16,9 @@
 @dynamic avatarURL;
 @dynamic cacheKey;
 @dynamic displayName;
+@dynamic lastMessageDate;
 @dynamic refreshTimestamp;
-
+@dynamic replyable;
 @dynamic message;
-
-
-#pragma mark
-#pragma mark - Public methods
-
-- (BOOL)isAvatarLoaded {
-    return (self.cacheKey == nil ? NO : YES);
-}
 
 @end

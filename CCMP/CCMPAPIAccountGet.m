@@ -30,6 +30,7 @@
         
         response.displayName = [config objectForKey:@"SENDER_DISPLAY_NAME"];
         response.displayImageUrl = [config objectForKey:@"SENDER_DISPLAY_IMAGE"];
+        response.replyable = [[config objectForKey:@"DEFAULT_REPLYABLE"] boolValue];
     }
 }
 

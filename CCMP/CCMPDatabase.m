@@ -53,10 +53,10 @@ static CCMPDatabase *sharedInstance;
     [self commit:nil];
 }
 
-- (void)commit:(void(^)(BOOL success))completion {
+- (void)commit:(void(^)(BOOL success, NSError *error))completion {
     if (completion) {
         [[self localContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error){
-            completion(success);
+            completion(success, error);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationDatabaseCommited
@@ -97,23 +97,36 @@ static CCMPDatabase *sharedInstance;
 
 - (CCMPMessageMO *)getMessageWithId:(NSNumber *)messageId {
     NSArray *result = [CCMPMessageMO MR_findByAttribute: @"messageId"
-                                              withValue: messageId];
+                                              withValue: messageId
+                                              inContext: [self localContext]];
     
     return [result lastObject];
 }
 
 - (CCMPMessageMO *)getMessageWithDeviceMessageId:(NSNumber *)deviceMessageId {
     NSArray *result = [CCMPMessageMO MR_findByAttribute: @"deviceMessageId"
-                                              withValue: deviceMessageId];
+                                              withValue: deviceMessageId
+                                              inContext: [self localContext]];
     
     return [result lastObject];
 }
 
 - (NSArray *)getAllQueuedMessages {
     NSArray *result = [CCMPMessageMO MR_findByAttribute: @"status"
-                                              withValue: [NSNumber numberWithInteger:CCMPMessageStatusQueued]];
+                                              withValue: [NSNumber numberWithInteger:CCMPMessageStatusQueued]
+                                              inContext: [self localContext]];
     
     return result;
+}
+    
+- (NSArray *)getAllOutgoingMessages {
+    return [CCMPMessageMO MR_findAllWithPredicate: [NSPredicate predicateWithFormat:@"incoming == 0"]
+                                        inContext: [self localContext]];
+}
+    
+- (NSArray *)getAllMessagesForAccount:(CCMPAccountMO *)account {
+    return [CCMPMessageMO MR_findAllWithPredicate: [NSPredicate predicateWithFormat:@"account == %@", account]
+                                        inContext: [self localContext]];
 }
 
 - (NSArray *)getMessageWithReferenceToDeviceMessageId:(NSNumber *)deviceId {
@@ -125,7 +138,7 @@ static CCMPDatabase *sharedInstance;
                                               withValue: [deviceId stringValue]
                                              andOrderBy: @"date"
                                               ascending: NO
-                                              inContext: [NSManagedObjectContext MR_contextForCurrentThread]];
+                                              inContext: [self localContext]];
     
     return result;
 }
@@ -154,6 +167,8 @@ static CCMPDatabase *sharedInstance;
         }
         
         CLogDebug(@"Insert new message - %@", message);
+        
+        [self updateBadgeCounter];
         
         if ([_delegate respondsToSelector:@selector(database:shouldInsertMessage:)]) {
             [_delegate database:self shouldInsertMessage:message];
@@ -230,11 +245,23 @@ static CCMPDatabase *sharedInstance;
     if (references) {
         NSArray *referencedMessages = [self getMessageWithReferenceToDeviceMessageId:message.deviceMessageId];
         for (CCMPMessageMO *msg in referencedMessages) {
-            [msg MR_deleteInContext:[NSManagedObjectContext MR_contextForCurrentThread]];
+            [msg MR_deleteInContext:[self localContext]];
         }
     }
     
-    [message MR_deleteInContext:[NSManagedObjectContext MR_contextForCurrentThread]];
+    [message MR_deleteInContext:[self localContext]];
+    
+    [self updateBadgeCounter];
+}
+
+- (void)deleteAllMessagesForAccount:(CCMPAccountMO *)account deleteAccount:(BOOL)del {
+    for (CCMPMessageMO *message in [self getAllMessagesForAccount:account]) {
+        [message MR_deleteInContext:[self localContext]];
+    }
+    
+    if (del) {
+        [account MR_deleteInContext:[self localContext]];
+    }
     
     [self updateBadgeCounter];
 }
@@ -253,6 +280,23 @@ static CCMPDatabase *sharedInstance;
                                                                  delegate: nil];
     
     return ctrl;
+}
+    
+- (NSFetchedResultsController *)messagesResultControllerForAccount:(CCMPAccountMO *)account {
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"account == %@", account];
+    
+    NSFetchedResultsController *ctrl = [CCMPMessageMO MR_fetchAllGroupedBy: @"sectionGroupString"
+                                                             withPredicate: predicate
+                                                                  sortedBy: @"date"
+                                                                 ascending: YES];
+    
+    return ctrl;
+}
+
+- (NSUInteger)unreadMessagesCount {
+    return [CCMPMessageMO MR_countOfEntitiesWithPredicate: [NSPredicate predicateWithFormat:@"incoming = 1 AND read = 0"]
+                                                inContext: [self localContext]];
 }
 
 
@@ -321,11 +365,10 @@ static CCMPDatabase *sharedInstance;
 #pragma mark - Private methods
 
 - (void)updateBadgeCounter {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"incoming = 1 AND read = 0"];
-    NSUInteger unreadCount = [CCMPMessageMO MR_countOfEntitiesWithPredicate:predicate];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount];
+    NSUInteger unreadCount = [self unreadMessagesCount];
     
     CLogInfo(@"Set badge counter %d", (int)unreadCount);
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount];
 }
 
 @end

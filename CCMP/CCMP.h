@@ -8,6 +8,7 @@
 
 #import "CCMPVariables.h"
 #import "CCMPDatabase.h"
+#import <PushKit/PushKit.h>
 
 #define SharedCCMP [CCMP sharedService]
 #define NewInstanceCCMP [[CCMP alloc] initWithNewInstance];
@@ -52,6 +53,27 @@
 #pragma mark - APNS & Notification handling
 
 /**
+ * Notifies the delegate when the push credentials have been updated.
+ *
+ * @see didUpdatePushCredentials:
+ */
+- (void)didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type;
+
+/**
+ * Notifies the delegate that a remote push has been received.
+ *
+ * @see didReceiveIncomingPushWithPayload:
+ */
+- (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type;
+
+/**
+ * Notifies the delegate that a remote push has been received.
+ *
+ * @see didReceiveIncomingPushWithPayload:
+ */
+- (void)didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type completionHandler:(void (^)(NSError *err))completionHandler;
+
+/**
  * Tells the delegate that the app successfully registered with Apple Push Service (APS).
  *
  * @see didRegisterForRemoteNotificationsWithDeviceToken:
@@ -85,6 +107,15 @@
  * @see didReceiveRemoteNotification:fetchCompletionHandler:
  */
 - (void)didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler NS_AVAILABLE_IOS(7_0);
+
+/**
+ * Tells the app that a push notification action was triggered.
+ * You need to handle the actions in your own app. The library only adds an entry to the log.
+ * To configure the identifer please contact your websms keyaccount manager.
+ *
+ * @see handleActionWithIdentifier:forRemoteNotification:completionHandler:
+ */
+- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)(void))completionHandler NS_AVAILABLE_IOS(8_0);
 
 
 #pragma mark

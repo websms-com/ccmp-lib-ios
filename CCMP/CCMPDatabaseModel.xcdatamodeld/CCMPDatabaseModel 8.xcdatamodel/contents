@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CCMPAccountMO" representedClassName="CCMPAccountMO" syncable="YES">
+        <attribute name="accountId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cacheKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastMessageDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="refreshTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="replyable" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="message" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="CCMPMessageMO" inverseName="account" inverseEntity="CCMPMessageMO" syncable="YES"/>
+    </entity>
+    <entity name="CCMPAttachmentMO" representedClassName="CCMPAttachmentMO" syncable="YES">
+        <attribute name="attachmentId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="attachmentURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cacheKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileSize" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="mimeType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="message" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CCMPMessageMO" inverseName="attachment" inverseEntity="CCMPMessageMO" syncable="YES"/>
+    </entity>
+    <entity name="CCMPMessageMO" representedClassName="CCMPMessageMO" syncable="YES">
+        <attribute name="additionalPushParameter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="delivered" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="deviceMessageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="expired" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="incoming" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="messageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="read" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="recipient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reference" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="replyable" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sendChannel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CCMPAccountMO" inverseName="message" inverseEntity="CCMPAccountMO" syncable="YES"/>
+        <relationship name="answer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CCMPMessageMO" inverseName="inReplyTo" inverseEntity="CCMPMessageMO" syncable="YES"/>
+        <relationship name="attachment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CCMPAttachmentMO" inverseName="message" inverseEntity="CCMPAttachmentMO" syncable="YES"/>
+        <relationship name="inReplyTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CCMPMessageMO" inverseName="answer" inverseEntity="CCMPMessageMO" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CCMPAccountMO" positionX="18" positionY="-54" width="128" height="165"/>
+        <element name="CCMPAttachmentMO" positionX="18" positionY="132" width="128" height="148"/>
+        <element name="CCMPMessageMO" positionX="-243" positionY="-54" width="128" height="313"/>
+    </elements>
+</model>

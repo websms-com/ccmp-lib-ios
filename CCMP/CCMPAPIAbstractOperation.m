@@ -26,14 +26,14 @@ const int kRequestTimeout = 15.0;
     if (self) {
         method = met;
         requestData = [NSKeyedArchiver archivedDataWithRootObject:jsonRequest];
-        
+
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
         [httpClient setParameterEncoding:AFJSONParameterEncoding];
-        
+
         request = [httpClient requestWithMethod: [self methodToString:met]
                                            path: path
                                      parameters: jsonRequest];
-        
+
         [request setValue:[CCMPAPIAbstractOperation customUserAgent] forHTTPHeaderField:@"User-Agent"];
         [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         [request setValue:key forHTTPHeaderField:@"X-Api-Key"];
@@ -47,14 +47,14 @@ const int kRequestTimeout = 15.0;
     if (self) {
         method = met;
         requestData = [plainObject dataUsingEncoding:NSUTF8StringEncoding];
-        
+
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
         [httpClient setParameterEncoding:AFJSONParameterEncoding];
-        
+
         request = [httpClient requestWithMethod: [self methodToString:met]
                                            path: path
                                      parameters: nil];
-        
+
         [request setValue:[CCMPAPIAbstractOperation customUserAgent] forHTTPHeaderField:@"User-Agent"];
         [request setValue:@"text/plain; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         [request setValue:key forHTTPHeaderField:@"X-Api-Key"];
@@ -83,9 +83,9 @@ const int kRequestTimeout = 15.0;
     __block NSHTTPURLResponse *response = nil;
     NSData *responseData = nil;
     NSError *connectionError;
-    
+
     for (NSInteger i=0; i < kRequestRetry; i++) {
-        
+
         responseData = [NSURLConnection sendSynchronousRequest: request
                                              returningResponse: &response
                                                          error: &connectionError];
@@ -93,28 +93,28 @@ const int kRequestTimeout = 15.0;
         if (!connectionError) {
             break;
         }
-        
+
         CLogDebug(@"Retry %@ because of %@", NSStringFromClass([self class]), connectionError);
         [NSThread sleepForTimeInterval:1.0];
     }
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     CLogDebug(@"Finished %@", NSStringFromClass([self class]));
-    
+
     // Evaluate response
     NSInteger statusCode = [response statusCode];
-    
+
     CLogVerbose(@"PLAIN RESPONSE DATA - %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
 
-    if (statusCode != 200 && statusCode != 201) {
+    if (connectionError) {
+        error = connectionError;
+        [self requestFinishedWithResult:nil andStatusCode:0];
+    } else if (statusCode != 200 && statusCode != 201) {
         error = [NSError errorWithDomain: errorDomain
                                     code: statusCode
                                 userInfo: @{NSLocalizedDescriptionKey: [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]}];
-        
+
         [self requestFinishedWithResult:nil andStatusCode:statusCode];
-    } else if (connectionError) {
-        error = connectionError;
-        [self requestFinishedWithResult:nil andStatusCode:0];
     } else {
         if (method == CCMPOperationMethodPost) {
             if ([[response allHeaderFields] objectForKey:@"Location"]) {
@@ -126,7 +126,7 @@ const int kRequestTimeout = 15.0;
                 NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData: responseData
                                                                             options: 0
                                                                               error: &parseErr];
-                
+
                 if (parseErr) {
                     error = parseErr;
                     [self requestFinishedWithResult:nil andStatusCode:statusCode];
@@ -139,7 +139,7 @@ const int kRequestTimeout = 15.0;
             NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData: responseData
                                                                         options: 0
                                                                           error: &parseErr];
-            
+
             if (parseErr) {
                 error = parseErr;
                 [self requestFinishedWithResult:nil andStatusCode:statusCode];
@@ -178,19 +178,19 @@ const int kRequestTimeout = 15.0;
 
 - (NSString *)apiDomain {
     NSString *requestURL = request.URL.absoluteString;
-    
+
     if ([requestURL rangeOfString:@"http://"].location != NSNotFound) {
         requestURL = [requestURL stringByReplacingOccurrencesOfString:@"http://" withString:@""];
     }
-    
+
     if ([requestURL rangeOfString:@"https://"].location != NSNotFound) {
         requestURL = [requestURL stringByReplacingOccurrencesOfString:@"https://" withString:@""];
     }
-    
+
     if ([requestURL rangeOfString:@"/"].location != NSNotFound) {
         requestURL = [[requestURL componentsSeparatedByString:@"/"] objectAtIndex:0];
     }
-    
+
     return requestURL;
 }
 
@@ -204,7 +204,7 @@ const int kRequestTimeout = 15.0;
     if (!appName) {
         appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
     }
-    
+
     // Attempt to find version and build number for this application
     NSString *appVersion = nil;
     NSString *marketingVersionNumber = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
@@ -218,16 +218,16 @@ const int kRequestTimeout = 15.0;
     } else {
         appVersion = (marketingVersionNumber ? marketingVersionNumber : developmentVersionNumber);
     }
-    
+
     // Get device plattform
     NSString *plattform = [[UIDevice new] hardwareName];
-    
+
     // Get device os
     NSString *systemOS = [[UIDevice currentDevice] systemVersion];
-    
+
     // Get device language
     NSString *locale = [[NSLocale currentLocale] localeIdentifier];
-    
+
     return [NSString stringWithFormat:@"%@ %@ (%@; iOS %@; %@)", appName, appVersion, plattform, systemOS, locale];
 }
 
