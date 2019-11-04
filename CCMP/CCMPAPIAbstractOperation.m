@@ -78,7 +78,9 @@ const int kRequestTimeout = 15.0;
 
     // Send request
     CLogDebug(@"Send %@", NSStringFromClass([self class]));
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    });
 
     __block NSHTTPURLResponse *response = nil;
     NSData *responseData = nil;
@@ -98,7 +100,9 @@ const int kRequestTimeout = 15.0;
         [NSThread sleepForTimeInterval:1.0];
     }
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    });
     CLogDebug(@"Finished %@", NSStringFromClass([self class]));
 
     // Evaluate response
