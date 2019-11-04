@@ -249,8 +249,8 @@ static CCMP *sharedInstance;
         [CCMPUserDefaults setCcmpConfig:nil];
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            [database wipeDatabase];
-            [database commit];
+            [self->database wipeDatabase];
+            [self->database commit];
         });
     }];
     
@@ -323,7 +323,7 @@ static CCMP *sharedInstance;
 
         NSString *pushId = CCMPUserDefaults.pushRegistrationToken;
         if (!pushId) {
-            pushId = cachedPushIdForInitialLogin;
+            pushId = self->cachedPushIdForInitialLogin;
         }
 
         // Update the pushId after the registration process
@@ -419,7 +419,7 @@ static CCMP *sharedInstance;
             [self processMessage:msg];
         }
 
-        [database commit:^(BOOL success, NSError *error){
+        [self->database commit:^(BOOL success, NSError *error){
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationInboxUpdated
                                                                     object: nil];
@@ -461,10 +461,10 @@ static CCMP *sharedInstance;
 
         [self processMessage:bop.response.message];
 
-        [database commit:^(BOOL success, NSError *error){
+        [self->database commit:^(BOOL success, NSError *error){
 
             if (success) {
-                CCMPAPIInboxFetchMessageOperation *fetchOp = [api fetchMessage:CCMPUserDefaults.deviceToken messageId:messageId];
+                CCMPAPIInboxFetchMessageOperation *fetchOp = [self->api fetchMessage:CCMPUserDefaults.deviceToken messageId:messageId];
                 [fetchOp main];
             }
 
@@ -601,7 +601,7 @@ static CCMP *sharedInstance;
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            CCMPAPIAttachmentGetOperation *op2 = [api getUrlForAttachmentKey: bop1.response.attachmentId
+            CCMPAPIAttachmentGetOperation *op2 = [self->api getUrlForAttachmentKey: bop1.response.attachmentId
                                                              withDeviceToken: CCMPUserDefaults.deviceToken];
             __block CCMPAPIAttachmentGetOperation *bop2 = op2;
             
@@ -624,7 +624,7 @@ static CCMP *sharedInstance;
                 });
             }];
 
-            [api.queue addOperation:op2];
+            [self->api.queue addOperation:op2];
         });
     }];
 
@@ -648,13 +648,13 @@ static CCMP *sharedInstance;
             return;
         }
 
-        [database updateMessage: msg
+        [self->database updateMessage: msg
                         content: nil
                            read: [msg.read boolValue]
                          status: CCMPMessageStatusSent
                     sendChannel: CCMPMessageSendChannelPush];
 
-        [database commit:^(BOOL success, NSError *error){
+        [self->database commit:^(BOOL success, NSError *error){
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName: CCMPNotificationMessageSent
                                                                     object: msg];
