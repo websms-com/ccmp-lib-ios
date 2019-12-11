@@ -66,6 +66,16 @@ static CCMP *sharedInstance;
                            stringByReplacingOccurrencesOfString: @">" withString: @""]
                           stringByReplacingOccurrencesOfString: @" " withString: @""];
 
+    NSUInteger length = credentials.token.length;
+    if (length > 0) {
+        const unsigned char *buffer = credentials.token.bytes;
+        NSMutableString *hexString  = [NSMutableString stringWithCapacity:(length * 2)];
+        for (int i = 0; i < length; ++i) {
+            [hexString appendFormat:@"%02x", buffer[i]];
+        }
+        newToken = [hexString copy];
+    }
+
     if (![CCMPUserDefaults.pushRegistrationToken isEqualToString:newToken]) {
         [CCMPUserDefaults setPushRegistrationToken:newToken];
 
@@ -116,11 +126,20 @@ static CCMP *sharedInstance;
 
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     CLogDebug(@"didRegisterForRemoteNotificationsWithDeviceToken: - %@", deviceToken);
-    
+
     // Parse pushId
     NSString *pushId = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
                                                     stringByReplacingOccurrencesOfString: @">" withString: @""]
                                                     stringByReplacingOccurrencesOfString: @" " withString: @""];
+    NSUInteger length = deviceToken.length;
+    if (length > 0) {
+        const unsigned char *buffer = deviceToken.bytes;
+        NSMutableString *hexString  = [NSMutableString stringWithCapacity:(length * 2)];
+        for (int i = 0; i < length; ++i) {
+            [hexString appendFormat:@"%02x", buffer[i]];
+        }
+        pushId = [hexString copy];
+    }
 
     if (![self isRegistered]) {
         cachedPushIdForInitialLogin = pushId;
